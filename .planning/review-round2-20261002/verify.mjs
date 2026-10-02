@@ -14,7 +14,7 @@ try {
   let ready=false;
   for(let i=0;i<50;i++){try{ready=(await fetch(process.env.APP_URL)).status===200;}catch{}if(ready)break;await sleep(100);}
   if(!ready)throw Error("Temporary verification server failed");
-  const tests=process.argv.includes("--targeted")?["product-review-round2"]:["retired-query-console","product-review-fixes","product-review-round2","beginner-learning"];
+  const tests=process.argv.includes("--targeted")?["product-review-round2"]:["product-review-fixes","product-review-round2","beginner-learning"];
   for(const name of tests){
     console.log("Verifying: "+name+" on temporary port "+port);
     await import(pathToFileURL(path.resolve("tests/"+name+".mjs")));

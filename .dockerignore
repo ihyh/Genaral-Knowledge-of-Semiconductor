@@ -1,0 +1,6 @@
+.git
+.planning
+docs
+tests
+node_modules
+*.log

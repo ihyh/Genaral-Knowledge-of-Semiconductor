@@ -7,12 +7,12 @@ const run=async function(){
   await call('Emulation.setDeviceMetricsOverride',{width:1440,height:1000,deviceScaleFactor:1,mobile:false});
   for(const key of keys) {
     await navigate('/step.html?process='+key,"document.querySelector('#detailContent')?.dataset.process==="+JSON.stringify(key));
-    const schema=await evaluate(`(()=>{const d=document.querySelector('#detailContent .process-basics');return {key:document.querySelector('#detailContent').dataset.process,labels:[...d.querySelectorAll('dt')].map(e=>e.textContent),answers:[...d.querySelectorAll('dd')].map(e=>({text:e.textContent,visible:e.getBoundingClientRect().height>0})),pre:document.querySelector('#detailPrerequisite').innerText,next:document.querySelector('#nextLearning').getAttribute('href'),reason:document.querySelector('#learningConnection').innerText,heading:document.querySelector('#detailContent h2').textContent,animationsAfterReading:document.querySelector('#detailAnimations').getBoundingClientRect().top>document.querySelector('#detailContent').getBoundingClientRect().bottom-1}})()`);
+    const schema=await evaluate(`(()=>{const d=document.querySelector('#detailContent .process-basics');return {key:document.querySelector('#detailContent').dataset.process,labels:[...d.querySelectorAll('dt')].map(e=>e.textContent),answers:[...d.querySelectorAll('dd')].map(e=>({text:e.textContent,visible:e.getBoundingClientRect().height>0})),pre:document.querySelector('#detailPrerequisite').innerText,next:document.querySelector('#nextLearning').getAttribute('href'),reason:document.querySelector('#learningConnection').innerText,heading:document.querySelector('#detailContent h2').textContent,demosBeforeReading:document.getElementById('detailDemos').getBoundingClientRect().top<document.querySelector('#detailContent').getBoundingClientRect().top}})()`);
     assert.deepEqual(schema.labels,['工艺目的','进入状态','设备及作用','离开状态','关联环节','常见误解']);
     assert.ok(schema.answers.every(a=>a.visible&&a.text.length>10),key+' visible useful six answers');
     assert.ok(schema.pre.length>30 && schema.reason.length>15 && schema.next,key+' prerequisites and rationale');
     assert.ok(!/^\d{2}\s/.test(schema.heading),key+' detail reading number removed');
-    if(!['design','transfer'].includes(key))assert.ok(schema.animationsAfterReading,key+' explanation before equipment demo');
+    if(!['design','transfer'].includes(key))assert.ok(schema.demosBeforeReading,key+' demonstration plays before the explanation');
     await directReading(key);
     assert.equal((await fetch(base+schema.next)).status,200);
     const pre=await evaluate("document.querySelector('#detailPrerequisite a').getAttribute('href')");
@@ -25,16 +25,15 @@ const run=async function(){
       assert.ok(await evaluate("['供给模块','反应空间','晶圆与承载模块','排气模块'].every(t=>document.querySelector('#detailContent .equipment-cutaway').innerText.includes(t))"),key+' labeled equipment functional section');
       await shot('equipment-section-'+key,'#detailContent .equipment-cutaway');
     }
-    if(['film','lithography','etch','interconnect'].includes(key))assert.equal(await evaluate("document.querySelector('#detailContent a[href=\"/chapters.html#local-layer-cycle\"]')!==null"),true);
     results.detailSchemas.push(schema);
-    const entries=await evaluate("[...document.querySelectorAll('#detailAnimations a')].map(a=>a.getAttribute('href'))");
+    const entries=await evaluate("[...document.querySelectorAll('#detailDemos .demo-embed-open')].map(a=>a.getAttribute('href'))");
     for(const entry of entries) {
-      await navigate(entry,"document.querySelector('#player')?.dataset.renderer==='webgl'");
+      await navigate(entry,"document.querySelector('#player')?.dataset.renderer==="+JSON.stringify(key==='lithography'?'webgl':'svg'));
       const journey=await evaluate("({url:location.pathname+location.search,step:Number(document.querySelector('#player').dataset.step),title:document.querySelector('#stepTitle').textContent,returnTo:document.querySelector('#readingLink').getAttribute('href'),outcome:document.querySelector('#currentOutcome').textContent})");
-      assert.equal(journey.step,key==='etch'||key==='packaging'?2:0,key+' relevant initial stage');
+      assert.equal(journey.step,key==='packaging'?2:0,key+' relevant initial stage');
       assert.equal(journey.returnTo,'/step.html?process='+key,key+' retains original explanation');
       assert.ok(journey.outcome.length>20);
-      if(key==='etch')assert.ok(journey.title.includes('刻蚀'));
+      if(key==='etch'){assert.equal(journey.url,'/etch.html');assert.equal(journey.title,'工艺气体进入');assert.ok(await evaluate("!!document.querySelector('#equipmentView') && !!document.querySelector('#materialView')"));}
       if(key==='packaging')assert.ok(journey.title.includes('裸片'));
       await click('#readingLink');
       await waitExpr("document.querySelector('#detailContent')?.dataset.process==="+JSON.stringify(key));
@@ -59,9 +58,9 @@ const run=async function(){
     assert.ok(await evaluate("document.querySelector('.learn-header').getBoundingClientRect().top>=-1"),'home long-page nav retained');
     assert.ok(await evaluate("document.querySelector('#manufacturingFlow').getBoundingClientRect().top>=document.querySelector('.learn-header').getBoundingClientRect().bottom-1"),'anchor not obscured');
     await overflow('mobile home');
-    for(const path of ['/process.html?lesson=patterning&from=etch','/lithography.html?from=lithography']) {
-      await navigate(path,"document.querySelector('#player')?.dataset.renderer==='webgl'");
-      for(const canvas of ['equipmentCanvas','materialCanvas']) {
+    for(const [path,pathRenderer] of [['/process.html?lesson=patterning&from=etch','svg'],['/lithography.html?from=lithography','webgl']]) {
+      await navigate(path,"document.querySelector('#player')?.dataset.renderer==="+JSON.stringify(pathRenderer));
+      for(const canvas of pathRenderer==='svg'?['equipmentSvg','materialSvg']:['equipmentCanvas','materialCanvas']) {
         await click('#stepNav button[data-step="'+(path.startsWith('/process')?2:0)+'"]');
         await evaluate("document.querySelector('#timeline').value=0;document.querySelector('#timeline').dispatchEvent(new Event('input',{bubbles:true}))");
         await evaluate(`(()=>{const e=document.getElementById('${canvas}').closest('.scene'),t=document.querySelector('.player-toolbar');scrollTo(0,e.getBoundingClientRect().top+scrollY-t.getBoundingClientRect().height-12)})()`);

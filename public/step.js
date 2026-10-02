@@ -5,7 +5,7 @@ const steps = {
   cleaning: {title:"清洗与表面准备",group:"晶圆制造",target:"#fab-cleaning",lessons:[["cleaning","清洗与干燥"]]},
   film: {title:"成膜",group:"晶圆制造",target:"#fab-film",lessons:[["patterning","成膜—图形化—刻蚀"]]},
   lithography: {title:"光刻",group:"晶圆制造",target:"#fab-lithography",lessons:[["lithography","光刻七步"]]},
-  etch: {title:"刻蚀",group:"晶圆制造",target:"#fab-etch",lessons:[["patterning","薄膜图形化与刻蚀"]]},
+  etch: {title:"刻蚀",group:"晶圆制造",target:"#fab-etch",lessons:[["etch","刻蚀设备内部作用"]]},
   implant: {title:"掺杂与注入",group:"晶圆制造",target:"#fab-implant",lessons:[["implant","掺杂与注入"]]},
   anneal: {title:"热处理与退火",group:"晶圆制造",target:"#fab-anneal",lessons:[["anneal","热处理与退火"]]},
   cmp: {title:"平坦化",group:"晶圆制造",target:"#fab-cmp",lessons:[["cmp","平坦化"]]},
@@ -102,6 +102,46 @@ const learning = {
     "已经覆盖从设计、材料到成品的主线，可返回全景对照各环节任务。"
   ]
 };
+/* Show each mechanism demonstration in place instead of only linking to another page. */
+function fitEmbed(frame) {
+  let applied = 0;
+  const measure = () => {
+    let doc;
+    try { doc = frame.contentDocument; } catch { return; }
+    if (!doc || !doc.body) return;
+    const height = Math.max(doc.documentElement.scrollHeight, doc.body.scrollHeight);
+    if (height > 200 && Math.abs(height - applied) > 2) { applied = height; frame.style.height = height + "px"; }
+  };
+  frame.addEventListener("load", () => {
+    measure();
+    setTimeout(measure, 240);
+    setTimeout(measure, 1000);
+    try { new ResizeObserver(measure).observe(frame.contentDocument.body); } catch {}
+  });
+  addEventListener("resize", measure);
+}
+function embedDemo(href, label) {
+  const figure = document.createElement("figure");
+  figure.className = "demo-embed";
+  const caption = document.createElement("figcaption");
+  const title = document.createElement("h2");
+  title.textContent = "设备演示 · " + label;
+  const hint = document.createElement("p");
+  hint.textContent = "可直接播放、逐步查看或拖动进度；下方文字讲解说明工艺目的、设备作用与前后状态。演示为教学重建，不是实机录像。";
+  caption.append(title, hint);
+  const frame = document.createElement("iframe");
+  frame.className = "demo-embed-frame";
+  frame.src = href + (href.includes("?") ? "&" : "?") + "embed=1";
+  frame.title = label + "：设备内部机制演示";
+  frame.loading = "lazy";
+  const open = document.createElement("a");
+  open.className = "demo-embed-open";
+  open.href = href;
+  open.textContent = "打开独立演示页面 →";
+  figure.append(caption, frame, open);
+  fitEmbed(frame);
+  return figure;
+}
 const choice = new URL(location.href).searchParams.get("process");
 const content = document.getElementById("detailContent");
 const message = document.getElementById("detailMessage");
@@ -128,7 +168,7 @@ async function showStep() {
       const original = chapters.querySelector(selector);
       if (!original) throw new Error("Section unavailable");
       const explanation = original.cloneNode(true);
-      explanation.querySelectorAll(".chapter-navigation,.equipment-entry").forEach(n => n.remove());
+      explanation.querySelectorAll(".chapter-navigation").forEach(n => n.remove());
       if (explanation.matches(".reading-block,.lesson-section")) {
         const heading = explanation.querySelector(":scope>h3");
         if (heading) {
@@ -145,19 +185,13 @@ async function showStep() {
       // Chapter-only fragments must still lead to the full reading context.
       explanation.querySelectorAll('a[href^="#"]').forEach(a => a.setAttribute("href", "/chapters.html" + a.getAttribute("href")));
       content.append(explanation);
-      if (selector === step.target && !explanation.querySelector(".source-line")) {
-        const source = original.closest("section.chapter").querySelector(":scope>.source-line");
-        if (source) content.append(source.cloneNode(true));
-      }
     }
-    const animations = document.getElementById("detailAnimations");
-    animations.hidden = step.lessons.length === 0;
+    const demos = document.getElementById("detailDemos");
+    demos.replaceChildren();
+    demos.hidden = step.lessons.length === 0;
     for (const [lesson, label] of step.lessons) {
-      const link = document.createElement("a");
-      link.className = "button";
-      link.href = (lesson === "lithography" ? "/lithography.html?from=" : "/process.html?lesson=" + lesson + "&from=") + choice;
-      link.textContent = "观看" + label + "演示 →";
-      animations.append(link);
+      const href = lesson === "etch" ? "/etch.html" : (lesson === "lithography" ? "/lithography.html?from=" : "/process.html?lesson=" + lesson + "&from=") + choice;
+      demos.append(embedDemo(href, label));
     }
     const [definition, anchor, next, connection] = learning[choice];
     const prerequisite = document.getElementById("detailPrerequisite");

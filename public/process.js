@@ -6,7 +6,6 @@
   const lessons={
     materials:{chapter:4,title:"先获得晶圆，再制造电路。",intro:"以硅晶圆为例，观察原料如何成为单晶棒、薄片和可加工表面。材料制备与器件制造是两个不同阶段。",why:"后续精细加工需要符合材料、形状与表面要求的载体，不能直接用普通原料块替代晶圆。",before:"高纯多晶硅原料，还不是片状加工载体。",after:"完成相应表面加工与检查的晶圆，尚未制造芯片电路。",note:"本例采用直拉法（CZ，Czochralski）生长路线。原料提纯未动画展开；切片后的研磨、损伤去除和抛光在第三处理场景中概括，画面只演示抛光接触；检查用扫描位置表示，不模拟实际测量结果。"+commonNote,
       legend:[["#8b9a9f","硅原料 / 晶体 / 晶圆"],["#dc7344","熔体与加热（状态示意色）"],["#68a6b8","加工表面（非额外薄膜）"],["#66cbd6","清洗液（示意）"]],
-      sources:[["SUMCO：单晶生长、切片、表面加工与检查","https://www.sumcosi.com/english/products/process/"]],
       steps:[
         s("准备原料","原料与生长炉","高纯多晶硅装入生长所需容器。提纯与原料检验不在本动画中展开。","画面中的硅块是单晶生长的原料，还不是晶圆，也没有芯片电路。","高纯原料与合格晶圆不是同一形态。"),
         s("单晶生长","直拉生长机构","硅熔化后，籽晶引导晶体生长，提拉与旋转机构形成单晶棒；炉体已剖开。","原料转为熔体，随后形成单晶棒。旋转与高度变化被放大，暖色不代表实际熔体外观。","单晶是晶体结构概念，不是已经完成电路的芯片。"),
@@ -16,7 +15,6 @@
       ],drawScene:materialsScene},
     patterning:{chapter:5,title:"从连续薄膜，走到一层材料图形。",intro:"将成膜、光刻、刻蚀与去胶放在同一个局部循环中，分清每一步处理的是哪层材料。这不是一颗芯片的完整制造过程。",why:"电路中的材料不能无差别覆盖所有位置，需要把某一层材料加工成设计要求的结构。",before:"承载本轮加工的硅基底，没有本例蓝色目标薄膜。",after:"目标薄膜有了图形，临时胶层被去除；还没有形成完整器件、多层互连或成品芯片。",note:"本例只演示一层薄膜的简化减法图形化：成膜→正性胶图形化→目标膜刻蚀→去胶→检查。光刻中涂胶、烘烤、曝光、显影合并为一个阶段，详见独立光刻演示。保护层理想化，刻蚀停在基底表面；不模拟真实选择比、反应、掩膜消耗或全部清洗。"+commonNote,
       legend:[["#8b9a9f","硅基底"],["#68a6b8","本轮目标薄膜"],["#d59843","临时光刻胶"],["#66cbd6","反应 / 检查位置（可视化示意）"]],
-      sources:[["TEL：成膜、光刻、刻蚀、清洗的分工","https://www.tel.com/product/index.html"],["ASML：光刻图形成像","https://www.asml.com/en/technology/lithography-principles"],["Applied Materials：量测与检测","https://www.appliedmaterials.com/cn/zh_cn/semiconductor/products/processes/metrology-and-inspection.html"]],
       steps:[
         s("增加薄膜","成膜腔体","腔体内形成一层目标薄膜；画面的下行标记只表示材料供应，不对应特定沉积设备的气路。","硅基底上逐渐增加连续蓝色薄膜。目标膜的材料与用途随产品层次变化。","成膜是在增加材料，此时没有本轮图形开口。"),
         s("形成胶图形","光刻处理概括","涂胶、曝光与显影在此合并演示。设备图只是过程概括，详细动作应阅读光刻七步演示。","先形成连续胶层，再选择性移除部分胶，露出蓝色薄膜。薄膜仍连续，未被刻穿。","光刻输出胶层图形；显影开口不等于薄膜刻蚀完成。"),
@@ -26,7 +24,6 @@
       ],drawScene:patternScene},
     packaging:{chapter:6,title:"裸片还需要连接、保护与测试。",intro:"以单裸片倒装连接为例，从晶圆测试和分离，走到封装与成品测试。此例不是所有封装的共同配方。",why:"裸片需要与外部电路连接，并满足机械保护等要求；测试用于确认规定的功能与电气表现。",before:"晶圆上已有电路单元，尚未成为本例的独立封装器件。",after:"一个倒装连接的封装器件完成相应装配，并进入成品测试；动画不提供实际测试结论。",note:"单裸片倒装示例；凸点准备、减薄、底部填充和其他装配细节被概括或省略，外部连接以柱状接点简化。晶圆边缘与划片损耗未显示；材料视图将裸片和保护结构局部剖开以便观察接点，不是实际器件缺损。引线键合、多裸片与晶圆级封装使用其他安排。"+commonNote,
       legend:[["#8b9a9f","硅裸片"],["#68a6b8","晶圆电路区域（概括）"],["#d59843","凸点与电连接"],["#3d795a","封装承载结构"],["#263e38","保护结构（局部剖开）"]],
-      sources:[["Intel：裸片装配与测试","https://www.intel.com/content/www/us/en/newsroom/tech101/manufacturing/how-silicon-die-become-chip-packages.html"],["Amkor：倒装连接与承载结构","https://amkor.com/technology/flip-chip/"],["TEL：晶圆探针测试","https://www.tel.com/product/index.html"],["Applied Materials：封装相关术语","https://www.appliedmaterials.com/il/en/glossary.html"]],
       steps:[
         s("晶圆测试","探针接触与定位","探针接触电路单元的测试位置，测试系统施加并读取电信号。画面只显示接触和定位。","电路单元仍在整片晶圆上；本步骤获取测试结果，不重新生成电路，也没有给出通过比例。","探针台负责定位与接触，判断需要测试系统和规定标准。"),
         s("分离裸片","划片机构","切割机构沿电路单元之间的划片区域加工。画面省略减薄、边缘区域及切割损耗。","电路单元成为分离的裸片；间距被放大，以便区分。电路不是在切割时才形成。","从晶棒切晶圆和从电路晶圆分离裸片，是不同阶段的切割。"),
@@ -37,7 +34,6 @@
       ],drawScene:packageScene},
     implant:{chapter:5,title:"掺杂改变硅的性质，不是增加一层膜。",intro:"以有掩膜的离子注入为例，观察选定元素如何进入硅的指定区域。先理解目的与位置，再认识设备。",why:"器件需要不同区域具有不同的电学特性。掺杂是引入选定元素来调节性质；离子注入是实现掺杂的一种方法。",before:"已有开口的临时掩膜覆盖部分硅表面，待处理区域尚未完成本轮注入。",after:"选定区域内引入了掺杂元素，掩膜被移除；通常还需相应退火，不能直接等同于器件完成。",note:"本例假定掩膜可有效阻挡注入，省略其光刻制备。右侧硅前部剖开以显示内部标记；橙色小柱代表掺杂元素，不是可见颗粒或新薄膜。大小、数量、深度均非真实比例；不模拟离子轨迹、通道效应或完整浓度分布。"+commonNote,
       legend:[["#8b9a9f","硅（前部局部剖开）"],["#d59843","临时掩膜"],["#ef7340","硅内部的掺杂元素标记"],["#66cbd6","离子束路径示意"]],
-      sources:[["Applied Materials：注入与材料改性","https://www.appliedmaterials.com/us/en/semiconductor/products/modify.html"],["Applied Materials：离子注入与退火术语","https://www.appliedmaterials.com/il/en/glossary.html"]],
       steps:[
         s("识别开口","掩膜与晶圆定位","晶圆已有带开口的掩膜；定位机构将指定区域安排到加工位置。本步骤不重新演示光刻。","掩膜覆盖区域与开口区域不同；右侧剖开硅前部，方便随后观察内部变化。","掩膜用于选择处理区域，不是要保留的电路材料。"),
         s("形成离子束","离子源与束线概括","离子源产生离子，束线完成选取、加速和输送。路径被简化为折线，不代表实际磁场与设备尺寸。","离子束到达开口，覆盖区域在本例中被掩膜阻挡。本阶段主要解释束的来源与位置。","离子注入设备与薄膜沉积设备解决不同任务。"),
@@ -47,7 +43,6 @@
       ],drawScene:implantScene},
     anneal:{chapter:5,title:"退火处理内部状态，不是清除掺杂。",intro:"以离子注入后的退火为例，理解为什么外形相近的晶圆仍需要受控热处理。",why:"注入会扰动硅的晶体结构，部分掺杂元素也尚未处于发挥预期电学作用的状态。适当退火可修复损伤并促进电学激活。",before:"已经注入掺杂元素的硅，存在需要处理的结构损伤；外形变化不一定可见。",after:"经过相应热处理后，内部损伤与掺杂状态得到调整；掺杂元素仍保留，实际效果需规定量测确认。",note:"采用灯加热的快速热处理功能示例。RTP（Rapid Thermal Processing，快速热处理）不是所有热处理的统称。前部剖切、灰色短线及橙／绿标记分别示意损伤和激活状态，不是实际可见颜色；暖色边框是加热状态提示，不是新增材料。为便于比较，标记数量与位置保持，未模拟扩散、真实晶格、温度曲线或完全修复。"+commonNote,
       legend:[["#8b9a9f","硅"],["#ef7340","待激活掺杂元素（状态色）"],["#42b87f","已激活状态（教学标记）"],["#263e38","注入损伤（局部短线）"],["#dc7344","加热状态（非实际发光）"]],
-      sources:[["Applied Materials：注入损伤与退火","https://www.appliedmaterials.com/us/en/semiconductor/products/modify.html"],["Applied Materials：快速热处理","https://www.appliedmaterials.com/us/en/semiconductor/products/processes/rapid-thermal-processing-treatments.html"]],
       steps:[
         s("处理前状态","热处理腔体与承载","晶圆进入热处理位置，相关环境与温度控制按工艺要求安排；外壳已局部隐藏。","橙色标记代表待激活掺杂元素，灰色短线代表注入损伤；并非实际可见的杂质颗粒和裂纹。","外观没有明显变化，不代表材料内部状态相同。"),
         s("受控加热","灯加热与温度控制","本例用灯加热机构表示升温，实际过程需控制温度、时间与环境；不提供生产设定。","晶圆受到热处理，暖色只表示加热状态；本阶段没有把掺杂元素画成蒸发或移除。","热处理依靠受控条件，不能简单理解为越热越好。"),
@@ -57,7 +52,6 @@
       ],drawScene:annealScene},
     cmp:{chapter:5,title:"去除多余材料，保留凹槽内的导线。",intro:"以铜互连的化学机械平坦化为例，观察表面多余铜如何被移除，同时凹槽内的铜得到保留。",why:"填充后表面存在多余材料与起伏，影响后续层的加工。需要控制去除量并建立适合继续加工的表面。",before:"绝缘材料内的凹槽已填铜，表面还覆盖多余铜；不是可直接继续叠层的最终状态。",after:"表面多余铜被去除，凹槽中的铜保留；还需清洗与量测，动画不证明完全平整或合格。",note:"CMP（Chemical Mechanical Planarization，化学机械平坦化）结合化学作用与机械接触。本例省略阻挡层去除细节，仅跟踪铜与绝缘层；实际存在选择性、磨损、凹陷等控制问题。设备中加工面朝下接触抛光垫，右侧剖面加工面朝上便于比较，不代表同时两面加工。"+commonNote,
       legend:[["#8b9a9f","下方载体（已有结构省略）"],["#68a6b8","绝缘层"],["#b87945","铜（颜色用于识别）"],["#66cbd6","抛光液 / 供液位置"],["#263e38","抛光垫"]],
-      sources:[["Applied Materials：CMP 接触、供液与清洗","https://www.appliedmaterials.com/il/en/semiconductor/semiconductor-technologies/cmp.html"],["Applied Materials：铜互连工艺示例（第37页）","https://ir.appliedmaterials.com/static-files/fb8a1b4a-210a-4e44-84ff-0c9b336945af"]],
       steps:[
         s("识别多余材料","承载与抛光平台","承载头固定晶圆，抛光平台准备加工。设备示意已把加工面朝向下方的垫面。","铜已填入绝缘层凹槽，还连续覆盖在绝缘层表面；右侧以局部直线凹槽举例。","待去除的是表面多余材料，不是凹槽中的全部铜。"),
         s("供液与接触","供液机构与承载头","抛光液供应到垫面，承载头让加工面接触抛光垫；化学作用与机械作用共同参与。","加工开始时表面仍有多余铜。供液标记不代表实际颗粒大小或所有化学反应。","平坦化不是只用水冲洗，也不是仅靠干磨。"),
@@ -67,7 +61,6 @@
       ],drawScene:cmpScene},
     interconnect:{chapter:5,title:"导线跨越多层，通孔连接指定位置。",intro:"以铜双镶嵌互连的局部示例，观察绝缘层、沟槽、通孔、金属填充与平坦化如何配合。先辨认材料，再追踪上下层连接。",why:"器件需要电连接才能形成电路。绝缘材料隔开不同导线，金属线沿层内延伸，通孔在设计指定的位置连接不同层。",before:"已有一条下层铜线及周围绝缘材料；前段器件结构在本例中省略。",after:"新增一条上层铜线，并通过一个通孔连接下层线；两层线路的交叉处不是自动连接，更多层需要继续相应加工。",note:"采用铜双镶嵌（Dual damascene）教学路线：在绝缘层中形成沟槽和通孔，再衬层、填铜、平坦化。光刻与多次刻蚀合并，阻挡／衬里／种子层夸大为薄壁；材料视图剖开前部绝缘层，填铜后也剖开通孔前侧衬层，露出铜芯，实际结构并非缺损。真实器件与底部接触省略，不能把它当成完整芯片横截面。"+commonNote,
       legend:[["#8b9a9f","下方载体"],["#68a6b8","绝缘材料（前部剖开）"],["#b87945","铜线与通孔"],["#263e38","阻挡 / 衬里示意"],["#d59843","铜种子层示意"]],
-      sources:[["Applied Materials：铜互连工艺示例（第37页）","https://ir.appliedmaterials.com/static-files/fb8a1b4a-210a-4e44-84ff-0c9b336945af"],["Applied Materials：互连的作用与材料","https://www.appliedmaterials.com/us/en/semiconductor/markets-and-inflections/advanced-logic/interconnect.html"],["Applied Materials：前段与后段工艺术语","https://www.appliedmaterials.com/il/en/glossary.html"]],
       steps:[
         s("识别下层线","已有结构与承载","晶圆上已有下层互连结构。此阶段只建立观察起点，不重新演示前段器件制造。","一条铜线嵌在绝缘材料中；不同线路之间需要绝缘分隔，下方器件在此省略。","晶圆内部互连不是封装后的外部引脚。"),
         s("增加绝缘层","成膜腔体概括","在已有结构上增加所需绝缘材料，为下一层线路准备加工空间。设备内部按功能简化。","上方增加绝缘层，下层铜线保留。绝缘层不是要把上下层全部短接的金属膜。","多层互连需要导电材料与绝缘材料共同配合。"),
@@ -79,7 +72,6 @@
       ],drawScene:interconnectScene},
     cleaning:{chapter:5,title:"清除残留，保留需要的材料与结构。",intro:"以单片湿法清洗为例，观察供液、冲洗与干燥怎样衔接。清洗在制造中多次出现，不是只在开始时进行。",why:"颗粒与加工残留可能影响后续成膜、图形加工和器件表现。清洗要针对当前材料与污染类型，同时避免损伤有用结构。",before:"晶圆上已有本轮需保留的薄膜图形，表面带有待去除的残留物。",after:"本例残留物经清洗移走，完成冲洗与干燥；原有薄膜图形保留，洁净程度仍需相应检查。",note:"采用供液与旋转承载的单片湿法功能示例，不代表所有清洗路线。橙色块代表选定残留；浅蓝标记表示液体，不是新增功能膜。残留移动与消失仅表示被带离观察区域，不模拟溶解、真实流场、化学选择性或完全无污染。干燥示意不适用于所有高深宽比结构；本例不提供化学品、浓度、转速等生产参数。"+commonNote,
       legend:[["#8b9a9f","硅基底"],["#68a6b8","需要保留的薄膜图形"],["#d59843","待去除残留（放大）"],["#66cbd6","液体 / 供液 / 检查位置（示意）"]],
-      sources:[["TEL：清洗、干燥与图形保护","https://www.tel.com/product/cellesta.html"],["TEL：制造中反复使用的清洗","https://www.tel.com/museum/exhibition/process/index.html"]],
       steps:[
         s("识别处理对象","承载与定位机构","承载机构固定并定位晶圆，依据已有材料与残留类型安排本轮清洗；不是将所有表面材料都视为污染。","蓝色薄膜图形是需要保留的结构，橙色块是待处理残留。颜色只用于区分任务，不代表真实外观。","清洗必须分清要保留什么、要去除什么。"),
         s("供液与作用","供液及承载机构","供液机构向表面输送选定清洗介质，晶圆与液体按路线作用；可视液柱不代表化学反应或设备真实气路。","表面处于清洗介质作用下，残留尚未在本阶段全部移走；原有薄膜图形保持。","清洗介质和条件取决于材料与污染，不是所有步骤共用一种配方。"),
@@ -89,7 +81,6 @@
       ],drawScene:cleaningScene},
     metrology:{chapter:5,title:"量测得到参数，不是把材料重新加工。",intro:"以非接触光学薄膜厚度量测为例，分清材料本身与观察后得到的信息。无需先掌握光学公式。",why:"成膜后需要知道厚度及不同位置的情况，不能只凭外观判断。量测提供参数与反馈，支持后续过程控制。",before:"硅基底上已有薄膜，尚未获得本轮示例的厚度信息。",after:"采集信号并进行相应分析，获得厚度等参数信息；本例薄膜和基底的形状、厚度保持。",note:"采用分析反射光的非接触量测功能示例；发射／接收路径被画成位置标记，不是真实光线追迹或仪器光路。厚度括号与测点是注释，不是实体探针或新增材料。真实量测涉及材料光学性质、模型、校准及不确定度；本动画不生成光谱、不反演真实厚度、不输出数值或通过判定。示意测点不等于覆盖整片晶圆所有位置。"+commonNote,
       legend:[["#8b9a9f","硅基底"],["#68a6b8","已有薄膜（保持不变）"],["#66cbd6","照明 / 采样位置示意"],["#d59843","接收 / 厚度注释（非材料）"]],
-      sources:[["Hamamatsu：非接触薄膜厚度量测","https://www.hamamatsu.com/us/en/applications/semiconductor-manufacturing/common-process-steps/thickness-measurement.html"],["Applied Materials：量测参数与制造反馈","https://www.appliedmaterials.com/us/en/semiconductor/products/analyze/patterning-control.html"]],
       steps:[
         s("定义量测项目","量测位置与校准准备","确认本轮要测的是薄膜厚度，选取合适方法与位置；设备校准及模型准备未动画展开。","膜厚是这层膜上下界面间的距离，不是整片晶圆厚度。薄膜保持连续；看到蓝色层不等于知道真实厚度。","量测前先明确要得到哪个参数。"),
         s("照明与接收","光学量测头","光学组件照明并采集反射信号；两种路径颜色只区分发射和接收功能，不代表真实可见光束。","光与材料相互作用，获得用于分析的信号；本例不是用光束去除薄膜，也不新增材料。","检测到光信号后，还需要分析才能得到厚度信息。"),
@@ -99,7 +90,6 @@
       ],drawScene:metrologyScene},
     inspection:{chapter:5,title:"检测标出异常，不会自动修复结构。",intro:"以光学图形晶圆缺陷检测为例，观察信号采集、候选位置标记与复查的关系。量测参数与查找缺陷各有任务。",why:"颗粒、异常连接等可能影响器件与后续加工。制造中需要及时发现异常位置，再结合复查与工艺信息判断原因。",before:"已有薄膜图形中，本教学样本设有一处颗粒和一处异常桥连；它们在检测前已存在。",after:"示例异常位置被标注以便复查，原颗粒与异常桥连仍在；未执行清洗、刻蚀、返工或电气测试。",note:"采用光学信号采集与缺陷位置标注的功能示例，不模拟具体厂商算法。橙色颗粒和蓝色桥连被放大；红框是叠加注释，不是实体材料、加工光束或删除指令。本例预设两个异常，不代表真实检出率或能检出全部缺陷；未模拟参考图像、信噪比、误报、漏报或实际分类结果。结构异常的电气影响还需进一步评估。"+commonNote,
       legend:[["#8b9a9f","硅基底"],["#68a6b8","薄膜图形与异常桥连"],["#d59843","已有颗粒（放大）"],["#66cbd6","采集位置注释"],["#df3d36","候选异常位置（叠加框）"]],
-      sources:[["KLA：光学晶圆缺陷检测与复查","https://www.kla.com/products/chip-manufacturing/defect-inspection-review"],["Applied Materials：颗粒、桥连与缺陷控制","https://www.appliedmaterials.com/us/en/semiconductor/products/analyze/defect-control.html"]],
       steps:[
         s("识别已有样本","承载与定位机构","将已有图形的晶圆安排到检测位置。此时没有执行清洗或修复，设备外壳已局部隐藏。","颗粒与桥连原本就存在。桥连指本应分开的图形被多余材料连接；没有红框不代表异常尚不存在。","检测发现已有异常，不是在检测时制造异常。"),
         s("采集光学信号","照明与成像组件","照明、成像与定位配合采集相应区域信号；可视光标只表示观察位置，不模拟实际镜头分辨率。","薄膜图形、颗粒与桥连都保持。采集信号并不将颗粒冲走，也没有把桥连切断。","光学检测和湿法清洗是不同任务。"),
@@ -177,7 +167,6 @@
   }
   document.querySelectorAll('.lesson-nav a').forEach(a=>{if(new URL(a.href).searchParams.get('lesson')===key)a.setAttribute('aria-current','page');});
   for(const [color,label] of lesson.legend) {const span=document.createElement('span');span.style.setProperty('--color',color);span.textContent=label;$('legend').append(span);}
-  for(const [label,url] of lesson.sources) {const li=document.createElement('li'),a=document.createElement('a');a.href=url;a.target='_blank';a.rel='noopener';a.textContent=label;li.append(a);$('sourceList').append(li);}
   lesson.steps.forEach(step=>{const li=document.createElement('li');li.textContent=step.title+'：'+step.equipment+' '+step.material+' 要点：'+step.takeaway;$('textSteps').append(li);});
 
   function foundation(box,palette) {
@@ -437,5 +426,717 @@
       for(let x=-1;x<=1;x++)for(let z=-1;z<=1;z++)cyl([x*w*.3,-.13+(1-p)*.2,z*d*.3],[.075,.23,.075],gold);
       box([1.9,1.3,-1.1],[.45,1.5,.35],C.dark);
     }
+  }
+
+  /* ---- 2D 机构剖面演示：与刻蚀样板同一视觉语言（原生 SVG，替代低模三维） ---- */
+  const SVGNS="http://www.w3.org/2000/svg";
+  function svgMake(host){
+    host.replaceChildren();
+    const mk=(parent,tag,attrs)=>{const e=document.createElementNS(SVGNS,tag);for(const k in attrs)e.setAttribute(k,attrs[k]);parent.append(e);return e;};
+    const bind=parent=>({
+      node:parent,
+      g:()=>{const el=document.createElementNS(SVGNS,"g");parent.append(el);return bind(el);},
+      rect:(x,y,w,h,fill,o={})=>mk(parent,"rect",Object.assign({x,y,width:w,height:h,fill,rx:o.rx===undefined?3:o.rx},o)),
+      line:(x1,y1,x2,y2,stroke,o={})=>mk(parent,"line",Object.assign({x1,y1,x2,y2,stroke,"stroke-width":2,"stroke-linecap":"round"},o)),
+      circle:(cx,cy,r,fill,o={})=>mk(parent,"circle",Object.assign({cx,cy,r,fill},o)),
+      path:(d,o={})=>mk(parent,"path",Object.assign({d,fill:"none"},o)),
+      text:(x,y,str,o={})=>{const e=mk(parent,"text",Object.assign({x,y,fill:"#cfe0ef","font-size":13},o));e.textContent=str;return e;},
+      op:(el,v)=>{const t=el&&el.node?el.node:el;t.setAttribute("opacity",v);return el;}
+    });
+    return bind(host);
+  }
+  const SVC={silicon:"#8b9a9f",melt:"#dc7344",surface:"#68a6b8",fluid:"#66cbd6",metal:"#7c8ea0",dark:"#0c1523",panel:"#16273c",line:"#39516f",text:"#cfe0ef",muted:"#9fb6cb"};
+  const svgScenes={
+    /* 晶圆制备：生长炉 → 单晶生长 → 切片 → 抛光 → 清洗检查（工位切换） */
+    materials({device,material}){
+      const frames=[],mats=[];
+      for(let i=0;i<5;i++){const g=device.g();g.rect(0,0,480,360,SVC.dark,{rx:0});frames.push(g);}
+      for(let i=0;i<5;i++){const m=material.g();m.rect(0,0,480,360,SVC.dark,{rx:0});mats.push(m);}
+      let g=frames[0];
+      g.rect(120,58,244,236,SVC.panel,{rx:16});g.rect(120,58,244,10,SVC.line,{rx:5});g.rect(150,124,184,146,"#1d3149",{rx:8});
+      for(let i=0;i<9;i++)g.rect(168+(i%3)*52,296-Math.floor(i/3)*26,40,20,i%2?SVC.silicon:"#7d8c93",{rx:3});
+      g.text(24,40,"生长炉（剖开）",{fill:SVC.muted,"font-size":14});g.text(24,66,"高纯多晶硅原料",{fill:SVC.text});
+      g=frames[1];
+      g.rect(120,58,244,236,SVC.panel,{rx:16});g.rect(150,124,184,146,"#1d3149",{rx:8});
+      const melt=g.circle(242,250,72,SVC.melt,{opacity:.5});
+      const ingot=g.rect(222,250,40,0,SVC.silicon,{rx:6});
+      const seed=g.rect(238,62,8,70,SVC.metal,{rx:4});
+      g.line(242,240,242,130,SVC.metal,{opacity:.5,"stroke-dasharray":"4 5"});
+      g.text(24,40,"直拉生长机构",{fill:SVC.muted,"font-size":14});g.text(24,66,"籽晶提拉与旋转",{fill:SVC.text});
+      g=frames[2];
+      g.rect(56,58,368,18,SVC.metal,{rx:6});
+      const cutIngot=g.rect(198,80,56,222,SVC.silicon,{rx:6});
+      const wires=[];for(let i=0;i<7;i++)wires.push(g.line(64,112+i*28,416,112+i*28,SVC.fluid,{opacity:0}));
+      g.text(24,40,"切片机构",{fill:SVC.muted,"font-size":14});g.text(24,336,"切割线与片间距被放大，未模拟完整线锯结构",{fill:SVC.muted,"font-size":12});
+      g=frames[3];
+      g.rect(96,240,288,40,SVC.panel,{rx:10});g.path("M120 262H360",{stroke:SVC.metal,"stroke-width":4});
+      const head=g.rect(186,124,108,50,SVC.metal,{rx:10});
+      const heldWafer=g.rect(198,178,84,14,SVC.silicon,{rx:4});
+      g.line(240,174,240,196,SVC.fluid,{opacity:.5});
+      g.text(24,40,"抛光承载机构",{fill:SVC.muted,"font-size":14});g.text(24,336,"承载头使晶圆与抛光垫相对运动，抛光液提供化学与磨料作用",{fill:SVC.muted,"font-size":12});
+      g=frames[4];
+      g.rect(120,152,240,16,SVC.silicon,{rx:5});
+      const nozzle=g.rect(232,88,16,34,SVC.metal,{rx:5});
+      const jets=[];for(let i=0;i<5;i++)jets.push(g.line(240,124,170+i*36,152,SVC.fluid,{opacity:0}));
+      const scan=g.rect(120,112,34,6,SVC.fluid,{opacity:0,rx:3});
+      g.text(24,40,"供液与检查位置",{fill:SVC.muted,"font-size":14});g.text(24,336,"冲洗干燥后按项目检查；画面洁净不等于证明合格",{fill:SVC.muted,"font-size":12});
+      let m=mats[0];
+      for(let i=0;i<7;i++)m.rect(140+(i%4)*52,150+Math.floor(i/4)*56,44,44,i%2?SVC.silicon:"#7d8c93",{rx:6});
+      m.text(24,40,"原料：多晶硅块",{fill:SVC.muted,"font-size":14});m.text(24,330,"还不是晶圆，也没有电路。",{fill:SVC.text});
+      m=mats[1];
+      m.rect(120,300,240,26,SVC.panel,{rx:8});
+      const melt2=m.rect(140,268,200,30,SVC.melt,{rx:8,opacity:.55});
+      const ingot2=m.rect(214,268,52,0,SVC.silicon,{rx:6});
+      const seed2=m.rect(236,150,8,120,SVC.metal,{rx:4});
+      m.text(24,40,"熔体 → 单晶棒",{fill:SVC.muted,"font-size":14});m.text(24,330,"连续、规则的晶体排列形成单晶。",{fill:SVC.text});
+      m=mats[2];
+      const slices=[];for(let i=0;i<5;i++)slices.push(m.rect(96+i*58,120,46,180,SVC.silicon,{rx:5}));
+      m.text(24,40,"晶棒 → 薄片",{fill:SVC.muted,"font-size":14});m.text(24,330,"切片后仍需表面加工；此时仍无电路。",{fill:SVC.text});
+      m=mats[3];
+      m.rect(90,214,300,54,SVC.silicon,{rx:4});
+      const bumps=[];for(let i=0;i<9;i++)bumps.push(m.rect(104+i*32,204,20,12,SVC.metal,{rx:3}));
+      m.rect(90,206,300,6,SVC.surface,{rx:3,opacity:.7});
+      m.text(24,40,"局部起伏 → 平整表面",{fill:SVC.muted,"font-size":14});m.text(24,330,"蓝色表示加工面，不是新增薄膜。",{fill:SVC.text});
+      m=mats[4];
+      m.rect(90,214,300,54,SVC.silicon,{rx:4});
+      const residue=[];for(let i=0;i<10;i++)residue.push(m.circle(110+i*28,208,4,SVC.fluid,{opacity:.85}));
+      const scanLine=m.rect(90,150,10,116,SVC.fluid,{opacity:.3});
+      m.text(24,40,"残留被清除并检查",{fill:SVC.muted,"font-size":14});m.text(24,330,"洁净状态需相应检查，不代表自动合格。",{fill:SVC.text});
+      return (step,p)=>{
+        frames.forEach((f,i)=>f.op(f,i===step?1:0));
+        mats.forEach((f,i)=>f.op(f,i===step?1:0));
+        const h=step===1?Math.max(.08,p):1;
+        ingot.setAttribute("y",(250-150*h).toFixed(1));ingot.setAttribute("height",(150*h).toFixed(1));
+        seed.setAttribute("y",(62+(1-h)*56).toFixed(1));
+        melt.setAttribute("opacity",(step===1?.5*(1-h*.45):0).toFixed(2));
+        ingot2.setAttribute("y",(268-118*h).toFixed(1));ingot2.setAttribute("height",(118*h).toFixed(1));
+        seed2.setAttribute("y",(150+(1-h)*60).toFixed(1));
+        melt2.setAttribute("opacity",(step===1?.55*(1-h*.4):0).toFixed(2));
+        wires.forEach((w,i)=>w.setAttribute("opacity",step===2?String(.2+.55*Math.abs(Math.sin(p*Math.PI*2+i*.5))):"0"));
+        cutIngot.setAttribute("opacity",step===2?String(Math.max(0,1-p*1.8)):"0");
+        const gap=step===2?p*12:0;
+        slices.forEach((s,i)=>{s.setAttribute("x",(96+i*58+(i-2)*gap).toFixed(1));s.setAttribute("opacity",step===2?"1":"0");});
+        const drop=step===3?(1-p)*26:0;
+        head.setAttribute("y",(124+drop).toFixed(1));heldWafer.setAttribute("y",(178+drop).toFixed(1));
+        bumps.forEach(b=>b.setAttribute("opacity",step===3?String(Math.max(0,1-p)):"0"));
+        residue.forEach(r=>r.setAttribute("opacity",step===4?String(Math.max(0,1-p*1.15)):"0"));
+        scanLine.setAttribute("x",(90+(step===4?p*286:0)).toFixed(1));scanLine.setAttribute("opacity",step===4?".3":"0");
+        jets.forEach(j=>j.setAttribute("opacity",step===4?String(.15+.5*(1-p)):"0"));
+      };
+    },
+    /* 清洗与干燥：供液 → 作用 → 带离 → 冲洗干燥 → 检查（有用图形全程保留） */
+    cleaning({device,material}){
+      const frames=[],mats=[];
+      for(let i=0;i<5;i++){const g=device.g();g.rect(0,0,480,360,SVC.dark,{rx:0});frames.push(g);}
+      for(let i=0;i<5;i++){const m=material.g();m.rect(0,0,480,360,SVC.dark,{rx:0});mats.push(m);}
+      let g=frames[0];
+      g.rect(150,252,180,26,SVC.panel,{rx:8});g.rect(150,232,180,18,SVC.silicon,{rx:5});
+      g.text(24,40,"承载与定位机构",{fill:SVC.muted,"font-size":14});g.text(24,66,"按已有材料与残留类型安排本轮清洗",{fill:SVC.text});
+      g=frames[1];
+      g.rect(150,252,180,26,SVC.panel,{rx:8});g.rect(150,232,180,18,SVC.silicon,{rx:5});
+      g.rect(232,78,16,34,SVC.metal,{rx:5});
+      const cols1=[];for(let i=0;i<5;i++)cols1.push(g.line(240,114,182+i*29,226,SVC.fluid,{opacity:.5}));
+      g.rect(146,222,188,14,SVC.fluid,{rx:6,opacity:.28});
+      g.text(24,40,"供液及承载机构",{fill:SVC.muted,"font-size":14});g.text(24,66,"介质与条件取决于材料和污染",{fill:SVC.text});
+      g=frames[2];
+      g.rect(150,252,180,26,SVC.panel,{rx:8});g.rect(150,232,180,18,SVC.silicon,{rx:5});
+      g.rect(146,222,188,14,SVC.fluid,{rx:6,opacity:.3});
+      g.path("M150 292A132 40 0 0 0 330 292",{stroke:SVC.fluid,"stroke-width":3,"stroke-dasharray":"8 7",opacity:.8});
+      g.text(24,40,"旋转与排液（概括）",{fill:SVC.muted,"font-size":14});g.text(24,66,"液体更新并排出，不模拟真实流场",{fill:SVC.text});
+      g=frames[3];
+      g.rect(150,252,180,26,SVC.panel,{rx:8});g.rect(150,232,180,18,SVC.silicon,{rx:5});
+      const air=[];for(let i=0;i<4;i++)air.push(g.line(140,196+i*10,340,196+i*10,SVC.metal,{opacity:.35,"stroke-dasharray":"10 8"}));
+      g.text(24,40,"冲洗与干燥（概括）",{fill:SVC.muted,"font-size":14});g.text(24,66,"减少介质与残留后按路线干燥",{fill:SVC.text});
+      g=frames[4];
+      g.rect(150,252,180,26,SVC.panel,{rx:8});g.rect(150,232,180,18,SVC.silicon,{rx:5});
+      const scan1=g.rect(150,150,34,6,SVC.fluid,{opacity:.8,rx:3});
+      g.text(24,40,"后续检查位置",{fill:SVC.muted,"font-size":14});g.text(24,66,"移动光标只表示检查位置",{fill:SVC.text});
+      let m=mats[0];
+      m.rect(90,250,300,52,SVC.silicon,{rx:4});m.rect(90,214,300,36,SVC.surface,{rx:4,opacity:.85});
+      const res=[];for(let i=0;i<6;i++)res.push(m.rect(108+i*46,168,26,16,"#d98a4e",{rx:4}));
+      m.text(24,40,"保留结构 + 待处理残留",{fill:SVC.muted,"font-size":14});m.text(24,330,"颜色只用于区分任务，不代表真实外观。",{fill:SVC.text});
+      m=mats[1];
+      m.rect(90,250,300,52,SVC.silicon,{rx:4});m.rect(90,214,300,36,SVC.surface,{rx:4,opacity:.85});
+      for(let i=0;i<6;i++)m.rect(108+i*46,168,26,16,"#d98a4e",{rx:4});
+      const liq=m.rect(90,150,300,100,SVC.fluid,{rx:4,opacity:.3});
+      m.text(24,40,"处于清洗介质作用下",{fill:SVC.muted,"font-size":14});m.text(24,330,"残留尚未全部移走，有用薄膜保持。",{fill:SVC.text});
+      m=mats[2];
+      m.rect(90,250,300,52,SVC.silicon,{rx:4});m.rect(90,214,300,36,SVC.surface,{rx:4,opacity:.85});
+      const gone=[];for(let i=0;i<6;i++)gone.push(m.rect(108+i*46,168,26,16,"#d98a4e",{rx:4}));
+      m.rect(90,150,300,100,SVC.fluid,{rx:4,opacity:.22});
+      m.text(24,40,"残留被带离",{fill:SVC.muted,"font-size":14});m.text(24,330,"去除的是选定残留，不是电路结构。",{fill:SVC.text});
+      m=mats[3];
+      m.rect(90,250,300,52,SVC.silicon,{rx:4});m.rect(90,214,300,36,SVC.surface,{rx:4,opacity:.85});
+      const film=m.rect(90,150,300,100,SVC.fluid,{rx:4,opacity:.25});
+      m.text(24,40,"表面液体减少（干燥）",{fill:SVC.muted,"font-size":14});m.text(24,330,"这不是新一轮图形加工。",{fill:SVC.text});
+      m=mats[4];
+      m.rect(90,250,300,52,SVC.silicon,{rx:4});m.rect(90,214,300,36,SVC.surface,{rx:4,opacity:.85});
+      const scan2=m.rect(90,150,12,100,SVC.fluid,{rx:4,opacity:.3});
+      m.text(24,40,"检查后进入后续加工",{fill:SVC.muted,"font-size":14});m.text(24,330,"实际洁净度仍需检测与工艺控制。",{fill:SVC.text});
+      return (step,p)=>{
+        frames.forEach((f,i)=>f.op(f,i===step?1:0));mats.forEach((f,i)=>f.op(f,i===step?1:0));
+        cols1.forEach(c=>c.setAttribute("opacity",step===1?String(.25+.45*(1-p)):"0"));
+        air.forEach((a,i)=>a.setAttribute("opacity",step===3?String(.15+.35*(1-p)):"0"));
+        scan1.setAttribute("x",(150+(step===4?p*146:0)).toFixed(1));scan1.setAttribute("opacity",step===4?".8":"0");
+        gone.forEach((r,i)=>r.setAttribute("opacity",step===2?String(Math.max(0,1-p*1.2)):"0"));
+        liq.setAttribute("opacity",(step===1?.3:step===2?.22:step===3?.25:0).toFixed(2));
+        film.setAttribute("opacity",step===3?String(Math.max(0,.25*(1-p))):"0");
+        scan2.setAttribute("x",(90+(step===4?p*286:0)).toFixed(1));scan2.setAttribute("opacity",step===4?".3":"0");
+      };
+    },
+    /* 薄膜图形化：成膜 → 胶图形 → 刻蚀 → 去胶 → 检查（每步只改变对应材料） */
+    patterning({device,material}){
+      const frames=[],mats=[];
+      for(let i=0;i<5;i++){const g=device.g();g.rect(0,0,480,360,SVC.dark,{rx:0});frames.push(g);}
+      for(let i=0;i<5;i++){const m=material.g();m.rect(0,0,480,360,SVC.dark,{rx:0});mats.push(m);}
+      let g=frames[0];
+      g.rect(120,60,240,220,SVC.panel,{rx:16});g.rect(120,60,240,10,SVC.line,{rx:5});
+      const down=[];for(let i=0;i<5;i++)down.push(g.line(150+i*45,96,150+i*45,140,SVC.surface,{opacity:.5}));
+      g.rect(150,220,180,20,SVC.silicon,{rx:5});
+      g.text(24,40,"成膜腔体",{fill:SVC.muted,"font-size":14});g.text(24,66,"下行标记只表示材料供应",{fill:SVC.text});
+      g=frames[1];
+      g.rect(120,60,240,220,SVC.panel,{rx:16});g.rect(150,220,180,20,SVC.silicon,{rx:5});
+      g.rect(158,110,164,18,SVC.metal,{rx:4});
+      const rays=[];for(let i=0;i<5;i++)rays.push(g.line(168+i*36,132,168+i*36,178,SVC.fluid,{opacity:.5}));
+      g.text(24,40,"光刻处理（合并概括）",{fill:SVC.muted,"font-size":14});g.text(24,66,"涂胶、曝光与显影合并；详细见光刻七步",{fill:SVC.text});
+      g=frames[2];
+      g.rect(120,60,240,220,SVC.panel,{rx:16});g.rect(150,220,180,20,SVC.silicon,{rx:5});
+      const ions=[];for(let i=0;i<7;i++)ions.push(g.line(158+i*24,110,158+i*24,196,SVC.fluid,{opacity:.55}));
+      g.text(24,40,"刻蚀腔体",{fill:SVC.muted,"font-size":14});g.text(24,66,"反应通过胶层开口加工目标薄膜",{fill:SVC.text});
+      g=frames[3];
+      g.rect(120,60,240,220,SVC.panel,{rx:16});g.rect(150,220,180,20,SVC.silicon,{rx:5});
+      g.rect(232,88,16,30,SVC.metal,{rx:5});
+      const wash=[];for(let i=0;i<4;i++)wash.push(g.line(240,120,170+i*46,180,SVC.fluid,{opacity:.4}));
+      g.text(24,40,"去胶处理",{fill:SVC.muted,"font-size":14});g.text(24,66,"移除不再需要的临时胶",{fill:SVC.text});
+      g=frames[4];
+      g.rect(120,60,240,220,SVC.panel,{rx:16});g.rect(150,220,180,20,SVC.silicon,{rx:5});
+      const scanP=g.rect(150,160,32,6,SVC.fluid,{opacity:.8,rx:3});
+      g.text(24,40,"量测与检查位置",{fill:SVC.muted,"font-size":14});g.text(24,66,"扫描线只表示检查位置",{fill:SVC.text});
+      let m=mats[0];
+      m.rect(90,250,300,52,SVC.silicon,{rx:4});
+      const filmGrow=m.rect(90,250,300,0,SVC.surface,{rx:3,opacity:.85});
+      m.text(24,40,"成膜：增加目标薄膜",{fill:SVC.muted,"font-size":14});m.text(24,330,"此时没有本轮图形开口。",{fill:SVC.text});
+      m=mats[1];
+      m.rect(90,250,300,52,SVC.silicon,{rx:4});m.rect(90,214,300,36,SVC.surface,{rx:3,opacity:.85});
+      const resist=[];for(let i=0;i<6;i++)resist.push(m.rect(94+i*50,196,46,18,"#d59843",{rx:3}));
+      const opened=[];for(let i=0;i<6;i++)opened.push(m.rect(94+i*50,196,20,18,SVC.dark,{rx:0,opacity:0}));
+      m.text(24,40,"胶图形：选择性移除部分胶",{fill:SVC.muted,"font-size":14});m.text(24,330,"薄膜仍连续，未被刻穿。",{fill:SVC.text});
+      m=mats[2];
+      m.rect(90,250,300,52,SVC.silicon,{rx:4});m.rect(90,214,300,36,SVC.surface,{rx:3,opacity:.85});
+      for(let i=0;i<6;i++)m.rect(94+i*50,196,46,18,"#d59843",{rx:3});
+      const cuts=[];for(let i=0;i<6;i++)cuts.push(m.rect(94+i*50+13,214,20,0,SVC.dark,{rx:0}));
+      m.text(24,40,"刻蚀：图形转移进目标膜",{fill:SVC.muted,"font-size":14});m.text(24,330,"基底保持连续。",{fill:SVC.text});
+      m=mats[3];
+      m.rect(90,250,300,52,SVC.silicon,{rx:4});m.rect(90,214,300,36,SVC.surface,{rx:3,opacity:.85});
+      for(let i=0;i<6;i++)m.rect(94+i*50+13,214,20,36,SVC.dark,{rx:0});
+      const peel=[];for(let i=0;i<6;i++)peel.push(m.rect(94+i*50,196,46,18,"#d59843",{rx:3}));
+      m.text(24,40,"去胶：移除临时材料",{fill:SVC.muted,"font-size":14});m.text(24,330,"图形化目标膜保留。",{fill:SVC.text});
+      m=mats[4];
+      m.rect(90,250,300,52,SVC.silicon,{rx:4});m.rect(90,214,300,36,SVC.surface,{rx:3,opacity:.85});
+      for(let i=0;i<6;i++)m.rect(94+i*50+13,214,20,36,SVC.dark,{rx:0});
+      const scanM=m.rect(90,150,12,110,SVC.fluid,{rx:4,opacity:.3});
+      m.text(24,40,"检查与衔接",{fill:SVC.muted,"font-size":14});m.text(24,330,"一个循环不等于完成一颗芯片。",{fill:SVC.text});
+      return (step,p)=>{
+        frames.forEach((f,i)=>f.op(f,i===step?1:0));mats.forEach((f,i)=>f.op(f,i===step?1:0));
+        down.forEach((d,i)=>d.setAttribute("opacity",step===0?String(.2+.5*p):"0"));
+        rays.forEach((r,i)=>r.setAttribute("opacity",step===1?String(.2+.45*Math.abs(Math.sin(p*Math.PI*2+i*.5))):"0"));
+        ions.forEach((r,i)=>r.setAttribute("opacity",step===2?String(.2+.5*Math.abs(Math.sin(p*Math.PI*3+i*.6))):"0"));
+        wash.forEach((w,i)=>w.setAttribute("opacity",step===3?String(.15+.4*(1-p)):"0"));
+        scanP.setAttribute("x",(150+(step===4?p*146:0)).toFixed(1));scanP.setAttribute("opacity",step===4?".8":"0");
+        const fh=step===0?36*p:36;
+        filmGrow.setAttribute("y",(250-fh).toFixed(1));filmGrow.setAttribute("height",fh.toFixed(1));
+        resist.forEach((r,i)=>{r.setAttribute("opacity",step===1?String(Math.max(0,1-Math.max(0,p-.45)/.55)):step<3?"1":"0");});
+        opened.forEach((o,i)=>o.setAttribute("opacity",step===1?String(Math.max(0,(p-.45)/.55)):"0"));
+        cuts.forEach((c,i)=>{const d=step===2?36*p:step>2?36:0;c.setAttribute("y",(214).toFixed(1));c.setAttribute("height",d.toFixed(1));c.setAttribute("opacity",step>=2?"1":"0");});
+        peel.forEach(pe=>pe.setAttribute("opacity",step===3?String(Math.max(0,1-p*1.1)):step===4?"0":"0"));
+        scanM.setAttribute("x",(90+(step===4?p*286:0)).toFixed(1));scanM.setAttribute("opacity",step===4?".3":"0");
+      };
+    },
+    /* 掺杂与注入：识别开口 → 形成离子束 → 进入硅内部 → 移除掩膜 → 衔接退火 */
+    implant({device,material}){
+      const frames=[],mats=[];
+      for(let i=0;i<5;i++){const g=device.g();g.rect(0,0,480,360,SVC.dark,{rx:0});frames.push(g);}
+      for(let i=0;i<5;i++){const m=material.g();m.rect(0,0,480,360,SVC.dark,{rx:0});mats.push(m);}
+      let g=frames[0];
+      g.rect(150,250,180,22,SVC.silicon,{rx:5});
+      for(let i=0;i<3;i++)g.rect(158+i*58,226,40,20,"#c99054",{rx:3});
+      g.line(240,150,240,196,SVC.fluid,{opacity:.5,"stroke-dasharray":"6 6"});
+      g.text(24,40,"掩膜与晶圆定位",{fill:SVC.muted,"font-size":14});g.text(24,66,"本步骤不重新演示光刻",{fill:SVC.text});
+      g=frames[1];
+      g.rect(56,150,60,46,SVC.panel,{rx:8});g.text(66,178,"离子源",{fill:SVC.text,"font-size":12});
+      g.path("M116 173H190L214 196",{stroke:SVC.fluid,"stroke-width":3});
+      const beam=[];for(let i=0;i<6;i++)beam.push(g.circle(196+i*14,206+i*5,3,SVC.fluid,{opacity:.7}));
+      g.rect(150,250,180,22,SVC.silicon,{rx:5});
+      g.text(24,40,"离子源与束线（概括）",{fill:SVC.muted,"font-size":14});g.text(24,66,"选取、加速与输送合并示意",{fill:SVC.text});
+      g=frames[2];
+      g.rect(150,250,180,22,SVC.silicon,{rx:5});
+      g.rect(140,120,200,26,SVC.panel,{rx:6});
+      const sweep=g.rect(150,124,40,18,SVC.fluid,{opacity:.55,rx:4});
+      g.text(24,40,"束线与扫描机构",{fill:SVC.muted,"font-size":14});g.text(24,66,"束流与晶圆相对扫描",{fill:SVC.text});
+      g=frames[3];
+      g.rect(150,250,180,22,SVC.silicon,{rx:5});
+      g.rect(232,88,16,30,SVC.metal,{rx:5});
+      const strip=[];for(let i=0;i<3;i++)strip.push(g.rect(158+i*58,226,40,20,"#c99054",{rx:3}));
+      g.text(24,40,"去除临时掩膜",{fill:SVC.muted,"font-size":14});g.text(24,66,"去掩膜不删除已注入元素",{fill:SVC.text});
+      g=frames[4];
+      g.rect(150,250,180,22,SVC.silicon,{rx:5});
+      const chk=g.rect(150,160,32,6,SVC.fluid,{opacity:.8,rx:3});
+      g.text(24,40,"过程检查与后续衔接",{fill:SVC.muted,"font-size":14});g.text(24,66,"注入与退火是关联但不同的步骤",{fill:SVC.text});
+      let m=mats[0];
+      m.rect(90,250,300,52,SVC.silicon,{rx:4});
+      for(let i=0;i<3;i++)m.rect(96+i*100,226,80,24,"#c99054",{rx:3});
+      m.text(24,40,"掩膜开口已就位",{fill:SVC.muted,"font-size":14});m.text(24,330,"覆盖区与开口区不同。",{fill:SVC.text});
+      m=mats[1];
+      m.rect(90,250,300,52,SVC.silicon,{rx:4});
+      for(let i=0;i<3;i++)m.rect(96+i*100,226,80,24,"#c99054",{rx:3});
+      const flying=[];for(let i=0;i<8;i++)flying.push(m.circle(116+i*34,196,4,SVC.fluid,{opacity:.7}));
+      m.text(24,40,"离子束到达开口",{fill:SVC.muted,"font-size":14});m.text(24,330,"覆盖区在本例中被掩膜阻挡。",{fill:SVC.text});
+      m=mats[2];
+      m.rect(90,250,300,52,SVC.silicon,{rx:4});
+      for(let i=0;i<3;i++)m.rect(96+i*100,226,80,24,"#c99054",{rx:3});
+      const dop=[];for(let i=0;i<9;i++)dop.push(m.circle(116+Math.floor(i/3)*100+((i%3)*20),252+26+((i%3)*6),4,"#e08a4a",{opacity:.85}));
+      m.text(24,40,"元素进入硅内部",{fill:SVC.muted,"font-size":14});m.text(24,330,"宏观外形保持，不是表面铺膜。",{fill:SVC.text});
+      m=mats[3];
+      m.rect(90,250,300,52,SVC.silicon,{rx:4});
+      const maskGone=[];for(let i=0;i<3;i++)maskGone.push(m.rect(96+i*100,226,80,24,"#c99054",{rx:3}));
+      for(let i=0;i<9;i++)m.circle(116+Math.floor(i/3)*100+((i%3)*20),278+((i%3)*6),4,"#e08a4a",{opacity:.85});
+      m.text(24,40,"掩膜移除，掺杂保留",{fill:SVC.muted,"font-size":14});m.text(24,330,"去掩膜不应删除已注入元素。",{fill:SVC.text});
+      m=mats[4];
+      m.rect(90,250,300,52,SVC.silicon,{rx:4});
+      for(let i=0;i<9;i++)m.circle(116+Math.floor(i/3)*100+((i%3)*20),278+((i%3)*6),4,"#e08a4a",{opacity:.85});
+      const scanI=m.rect(90,150,12,110,SVC.fluid,{rx:4,opacity:.3});
+      m.text(24,40,"检查后衔接热处理",{fill:SVC.muted,"font-size":14});m.text(24,330,"电学作用与损伤仍需后续处理。",{fill:SVC.text});
+      return (step,p)=>{
+        frames.forEach((f,i)=>f.op(f,i===step?1:0));mats.forEach((f,i)=>f.op(f,i===step?1:0));
+        beam.forEach((b,i)=>b.setAttribute("opacity",step===1?String(Math.max(0,Math.sin((p*3+i*.2)%1*Math.PI))*.8):"0"));
+        sweep.setAttribute("x",(150+(step===2?p*150:0)).toFixed(1));sweep.setAttribute("opacity",step===2?".55":"0");
+        strip.forEach((s,i)=>s.setAttribute("opacity",step===3?String(Math.max(0,1-p*1.2)):"0"));
+        chk.setAttribute("x",(150+(step===4?p*146:0)).toFixed(1));chk.setAttribute("opacity",step===4?".8":"0");
+        flying.forEach((f,i)=>f.setAttribute("opacity",step===1?String(.2+.5*Math.abs(Math.sin(p*Math.PI*2+i*.4))):"0"));
+        dop.forEach((d,i)=>d.setAttribute("opacity",step>=2?String(step===2?Math.min(1,p*1.4):1):"0"));
+        maskGone.forEach((mg,i)=>mg.setAttribute("opacity",step===3?String(Math.max(0,1-p*1.2)):"0"));
+        scanI.setAttribute("x",(90+(step===4?p*286:0)).toFixed(1));scanI.setAttribute("opacity",step===4?".3":"0");
+      };
+    },
+    /* 热处理：处理前状态 → 受控加热 → 修复与激活 → 受控冷却 → 量测衔接（宏观形状不变） */
+    anneal({device,material}){
+      const frames=[],mats=[];
+      for(let i=0;i<5;i++){const g=device.g();g.rect(0,0,480,360,SVC.dark,{rx:0});frames.push(g);}
+      for(let i=0;i<5;i++){const m=material.g();m.rect(0,0,480,360,SVC.dark,{rx:0});mats.push(m);}
+      let g=frames[0];
+      g.rect(120,150,240,140,SVC.panel,{rx:16});g.rect(150,252,180,22,SVC.panel,{rx:8});g.rect(150,232,180,18,SVC.silicon,{rx:5});
+      g.text(24,40,"热处理腔体与承载",{fill:SVC.muted,"font-size":14});g.text(24,66,"环境与温度按工艺要求安排",{fill:SVC.text});
+      g=frames[1];
+      g.rect(150,232,180,18,SVC.silicon,{rx:5});
+      g.rect(138,110,204,16,SVC.metal,{rx:6});
+      const lamp1=[];for(let i=0;i<6;i++)lamp1.push(g.line(156+i*32,128,156+i*32,224,"#e5a86a",{opacity:.5}));
+      g.text(24,40,"灯加热与温度控制",{fill:SVC.muted,"font-size":14});g.text(24,66,"不提供生产设定",{fill:SVC.text});
+      g=frames[2];
+      g.rect(150,232,180,18,SVC.silicon,{rx:5});g.rect(138,110,204,16,SVC.metal,{rx:6});
+      const lamp2=[];for(let i=0;i<6;i++)lamp2.push(g.line(156+i*32,128,156+i*32,224,"#f0b877",{opacity:.6}));
+      g.text(24,40,"修复与激活阶段",{fill:SVC.muted,"font-size":14});g.text(24,66,"灯光脉动只表示过程进行中",{fill:SVC.text});
+      g=frames[3];
+      g.rect(150,232,180,18,SVC.silicon,{rx:5});
+      const cool=[];for(let i=0;i<4;i++)cool.push(g.line(140,150+i*22,340,150+i*22,SVC.fluid,{opacity:.3,"stroke-dasharray":"12 9"}));
+      g.text(24,40,"受控冷却",{fill:SVC.muted,"font-size":14});g.text(24,66,"不模拟热传导或具体气路",{fill:SVC.text});
+      g=frames[4];
+      g.rect(150,232,180,18,SVC.silicon,{rx:5});g.rect(150,120,180,20,SVC.metal,{rx:6});
+      const scanA=g.rect(150,180,32,6,SVC.fluid,{opacity:.8,rx:3});
+      g.text(24,40,"量测位置示意",{fill:SVC.muted,"font-size":14});g.text(24,66,"检查光标不对应真实测试数据",{fill:SVC.text});
+      let m=mats[0];
+      m.rect(90,250,300,52,SVC.silicon,{rx:4});
+      const dmg=[];for(let i=0;i<5;i++)dmg.push(m.line(120+i*56,262,140+i*56,290,SVC.metal,{opacity:.8}));
+      for(let i=0;i<6;i++)m.circle(118+i*46,276,4,"#e08a4a",{opacity:.85});
+      m.text(24,40,"处理前：掺杂标记 + 损伤",{fill:SVC.muted,"font-size":14});m.text(24,330,"外观相近不代表内部状态相同。",{fill:SVC.text});
+      m=mats[1];
+      m.rect(90,250,300,52,SVC.silicon,{rx:4});
+      for(let i=0;i<5;i++)m.line(120+i*56,262,140+i*56,290,SVC.metal,{opacity:.8});
+      for(let i=0;i<6;i++)m.circle(118+i*46,276,4,"#e08a4a",{opacity:.85});
+      const warm=m.rect(90,238,300,76,"#dc7344",{rx:6,opacity:.16});
+      m.text(24,40,"受控加热",{fill:SVC.muted,"font-size":14});m.text(24,330,"暖色只表示加热状态。",{fill:SVC.text});
+      m=mats[2];
+      m.rect(90,250,300,52,SVC.silicon,{rx:4});
+      const dmgGone=[];for(let i=0;i<5;i++)dmgGone.push(m.line(120+i*56,262,140+i*56,290,SVC.metal,{opacity:.8}));
+      const act=[];for(let i=0;i<6;i++)act.push(m.circle(118+i*46,276,4,"#8adeb0",{opacity:0}));
+      for(let i=0;i<6;i++)m.circle(118+i*46,276,4,"#e08a4a",{opacity:.85});
+      m.text(24,40,"修复与激活",{fill:SVC.muted,"font-size":14});m.text(24,330,"状态色表示内部性质变化，不是新增材料。",{fill:SVC.text});
+      m=mats[3];
+      m.rect(90,250,300,52,SVC.silicon,{rx:4});
+      for(let i=0;i<6;i++)m.circle(118+i*46,276,4,"#8adeb0",{opacity:.85});
+      const cooled=m.rect(90,238,300,76,SVC.fluid,{rx:6,opacity:.12});
+      m.text(24,40,"受控冷却",{fill:SVC.muted,"font-size":14});m.text(24,330,"已激活状态保留，未恢复成未注入。",{fill:SVC.text});
+      m=mats[4];
+      m.rect(90,250,300,52,SVC.silicon,{rx:4});
+      for(let i=0;i<6;i++)m.circle(118+i*46,276,4,"#8adeb0",{opacity:.85});
+      const scanA2=m.rect(90,150,12,110,SVC.fluid,{rx:4,opacity:.3});
+      m.text(24,40,"量测与衔接",{fill:SVC.muted,"font-size":14});m.text(24,330,"轮廓相近，内部状态已调整。",{fill:SVC.text});
+      return (step,p)=>{
+        frames.forEach((f,i)=>f.op(f,i===step?1:0));mats.forEach((f,i)=>f.op(f,i===step?1:0));
+        lamp1.forEach((l,i)=>l.setAttribute("opacity",step===1?String(.2+.4*(1-Math.abs(p-.5)*2)):"0"));
+        lamp2.forEach((l,i)=>l.setAttribute("opacity",step===2?String(.25+.5*Math.abs(Math.sin(p*Math.PI*4+i*.5))):"0"));
+        cool.forEach((c,i)=>c.setAttribute("opacity",step===3?String(.1+.25*p):"0"));
+        scanA.setAttribute("x",(150+(step===4?p*146:0)).toFixed(1));scanA.setAttribute("opacity",step===4?".8":"0");
+        warm.setAttribute("opacity",(step===1?.10+.12*p:step===2?.16*(1-p*.5):0).toFixed(2));
+        dmgGone.forEach(d=>d.setAttribute("opacity",step===2?String(Math.max(0,.8*(1-p*1.2))):"0"));
+        act.forEach(a=>a.setAttribute("opacity",step>=2?String(step===2?Math.min(1,p*1.3):.85):"0"));
+        cooled.setAttribute("opacity",step===3?String(.12*(1-p*.4)):"0");
+        scanA2.setAttribute("x",(90+(step===4?p*286:0)).toFixed(1));scanA2.setAttribute("opacity",step===4?".3":"0");
+      };
+    },
+    /* 平坦化：识别多余材料 → 供液接触 → 去除表面铜 → 清洗 → 检查（槽内铜保留） */
+    cmp({device,material}){
+      const frames=[],mats=[];
+      for(let i=0;i<5;i++){const g=device.g();g.rect(0,0,480,360,SVC.dark,{rx:0});frames.push(g);}
+      for(let i=0;i<5;i++){const m=material.g();m.rect(0,0,480,360,SVC.dark,{rx:0});mats.push(m);}
+      let g=frames[0];
+      g.rect(120,244,240,52,SVC.panel,{rx:10});g.path("M140 270H340",{stroke:SVC.metal,"stroke-width":4});
+      g.rect(186,120,108,52,SVC.metal,{rx:10});g.rect(198,176,84,14,SVC.silicon,{rx:4});
+      g.text(24,40,"承载头与抛光平台",{fill:SVC.muted,"font-size":14});g.text(24,66,"本例加工面朝向下方垫面",{fill:SVC.text});
+      g=frames[1];
+      g.rect(120,244,240,52,SVC.panel,{rx:10});g.path("M140 270H340",{stroke:SVC.metal,"stroke-width":4});
+      g.rect(186,120,108,52,SVC.metal,{rx:10});g.rect(198,176,84,14,SVC.silicon,{rx:4});
+      g.rect(232,196,16,30,SVC.metal,{rx:5});
+      const slurry=[];for(let i=0;i<4;i++)slurry.push(g.line(240,228,190+i*34,262,SVC.fluid,{opacity:.45}));
+      g.text(24,40,"供液机构与承载头",{fill:SVC.muted,"font-size":14});g.text(24,66,"化学作用与机械作用共同参与",{fill:SVC.text});
+      g=frames[2];
+      g.rect(120,244,240,52,SVC.panel,{rx:10});g.path("M140 270H340",{stroke:SVC.metal,"stroke-width":4});
+      g.rect(186,126,108,52,SVC.metal,{rx:10});g.rect(198,182,84,14,SVC.silicon,{rx:4});
+      g.path("M150 300A110 26 0 0 0 330 300",{stroke:SVC.fluid,"stroke-width":3,"stroke-dasharray":"9 7",opacity:.75});
+      g.text(24,40,"相对运动与压力控制",{fill:SVC.muted,"font-size":14});g.text(24,66,"垫上浅色标记只显示旋转",{fill:SVC.text});
+      g=frames[3];
+      g.rect(120,244,240,52,SVC.panel,{rx:10});g.path("M140 270H340",{stroke:SVC.metal,"stroke-width":4});
+      g.rect(186,120,108,52,SVC.metal,{rx:10});g.rect(198,176,84,14,SVC.silicon,{rx:4});
+      const rinse=[];for(let i=0;i<4;i++)rinse.push(g.line(160+i*52,150,160+i*52,196,SVC.fluid,{opacity:.35}));
+      g.text(24,40,"加工后清洗（概括）",{fill:SVC.muted,"font-size":14});g.text(24,66,"清理不应删除铜线",{fill:SVC.text});
+      g=frames[4];
+      g.rect(120,244,240,52,SVC.panel,{rx:10});g.path("M140 270H340",{stroke:SVC.metal,"stroke-width":4});
+      g.rect(186,120,108,52,SVC.metal,{rx:10});g.rect(198,176,84,14,SVC.silicon,{rx:4});
+      const scanC=g.rect(150,120,32,6,SVC.fluid,{opacity:.8,rx:3});
+      g.text(24,40,"量测与检查位置",{fill:SVC.muted,"font-size":14});g.text(24,66,"扫描位置不输出厚度或合格判断",{fill:SVC.text});
+      let m=mats[0];
+      m.rect(90,262,300,40,SVC.silicon,{rx:4});
+      for(let i=0;i<3;i++)m.rect(120+i*90,236,54,26,"#b8763f",{rx:3});
+      const over=m.rect(90,214,300,22,"#c98a4e",{rx:4,opacity:.9});
+      m.text(24,40,"铜已填入凹槽并覆盖表面",{fill:SVC.muted,"font-size":14});m.text(24,330,"待去除的是表面多余材料。",{fill:SVC.text});
+      m=mats[1];
+      m.rect(90,262,300,40,SVC.silicon,{rx:4});
+      for(let i=0;i<3;i++)m.rect(120+i*90,236,54,26,"#b8763f",{rx:3});
+      m.rect(90,214,300,22,"#c98a4e",{rx:4,opacity:.9});
+      const sl=m.rect(90,190,300,26,SVC.fluid,{rx:4,opacity:.28});
+      m.text(24,40,"供液与接触",{fill:SVC.muted,"font-size":14});m.text(24,330,"不是只用水冲洗，也不仅靠干磨。",{fill:SVC.text});
+      m=mats[2];
+      m.rect(90,262,300,40,SVC.silicon,{rx:4});
+      for(let i=0;i<3;i++)m.rect(120+i*90,236,54,26,"#b8763f",{rx:3});
+      const over2=m.rect(90,214,300,22,"#c98a4e",{rx:4,opacity:.9});
+      m.text(24,40,"表面多余铜被去除",{fill:SVC.muted,"font-size":14});m.text(24,330,"凹槽中的铜保留。",{fill:SVC.text});
+      m=mats[3];
+      m.rect(90,262,300,40,SVC.silicon,{rx:4});
+      for(let i=0;i<3;i++)m.rect(120+i*90,236,54,26,"#b8763f",{rx:3});
+      const cleanC=m.rect(90,214,300,22,SVC.fluid,{rx:4,opacity:.2});
+      m.text(24,40,"清洗残留",{fill:SVC.muted,"font-size":14});m.text(24,330,"绝缘层与铜线顶面齐平。",{fill:SVC.text});
+      m=mats[4];
+      m.rect(90,262,300,40,SVC.silicon,{rx:4});
+      for(let i=0;i<3;i++)m.rect(120+i*90,236,54,26,"#b8763f",{rx:3});
+      const scanC2=m.rect(90,190,12,110,SVC.fluid,{rx:4,opacity:.3});
+      m.text(24,40,"检查表面",{fill:SVC.muted,"font-size":14});m.text(24,330,"看起来平整不等于通过验收。",{fill:SVC.text});
+      return (step,p)=>{
+        frames.forEach((f,i)=>f.op(f,i===step?1:0));mats.forEach((f,i)=>f.op(f,i===step?1:0));
+        slurry.forEach((s,i)=>s.setAttribute("opacity",step===1?String(.2+.35*(1-p)):"0"));
+        rinse.forEach((s,i)=>s.setAttribute("opacity",step===3?String(.15+.3*(1-p)):"0"));
+        scanC.setAttribute("x",(150+(step===4?p*146:0)).toFixed(1));scanC.setAttribute("opacity",step===4?".8":"0");
+        const keep=step===2?Math.max(0,1-p*1.25):step>2?0:1;
+        over2.setAttribute("height",(22*keep).toFixed(1));over2.setAttribute("opacity",String(.9*keep));
+        sl.setAttribute("opacity",(step===1?.28*(1-p*.4):0).toFixed(2));
+        cleanC.setAttribute("opacity",step===3?String(.2*(1-p*.6)):"0");
+        scanC2.setAttribute("x",(90+(step===4?p*286:0)).toFixed(1));scanC2.setAttribute("opacity",step===4?".3":"0");
+      };
+    },
+    /* 多层互连：已有下层线 → 绝缘层 → 沟槽与通孔 → 衬层 → 填铜 → 平坦化 → 检查（7 阶段） */
+    interconnect({device,material}){
+      const N=7,frames=[],mats=[];
+      for(let i=0;i<N;i++){const g=device.g();g.rect(0,0,480,360,SVC.dark,{rx:0});frames.push(g);}
+      for(let i=0;i<N;i++){const m=material.g();m.rect(0,0,480,360,SVC.dark,{rx:0});mats.push(m);}
+      let g=frames[0];
+      g.rect(140,250,200,26,SVC.panel,{rx:8});g.rect(150,226,180,24,SVC.silicon,{rx:5});
+      g.text(24,40,"已有下层互连结构",{fill:SVC.muted,"font-size":14});g.text(24,66,"本阶段只建立观察起点",{fill:SVC.text});
+      g=frames[1];
+      g.rect(120,60,240,220,SVC.panel,{rx:16});g.rect(150,220,180,20,SVC.silicon,{rx:5});
+      const idown=[];for(let i=0;i<5;i++)idown.push(g.line(152+i*44,96,152+i*44,140,SVC.surface,{opacity:.5}));
+      g.text(24,40,"成膜腔体（概括）",{fill:SVC.muted,"font-size":14});g.text(24,66,"增加绝缘材料，为下一层线路准备空间",{fill:SVC.text});
+      g=frames[2];
+      g.rect(120,60,240,220,SVC.panel,{rx:16});g.rect(150,220,180,20,SVC.silicon,{rx:5});
+      g.rect(158,104,164,16,SVC.metal,{rx:4});
+      const irays=[];for(let i=0;i<4;i++)irays.push(g.line(176+i*42,124,176+i*42,170,SVC.fluid,{opacity:.5}));
+      g.text(24,40,"光刻与刻蚀（合并）",{fill:SVC.muted,"font-size":14});g.text(24,66,"形成上层沟槽与通向下层线的孔",{fill:SVC.text});
+      g=frames[3];
+      g.rect(120,60,240,220,SVC.panel,{rx:16});g.rect(150,220,180,20,SVC.silicon,{rx:5});
+      g.rect(150,110,180,16,"#7fa8b8",{rx:4,opacity:.6});
+      const ldown=[];for(let i=0;i<4;i++)ldown.push(g.line(168+i*50,130,168+i*50,180,"#b9d7e2",{opacity:.45}));
+      g.text(24,40,"阻挡、衬里与种子层",{fill:SVC.muted,"font-size":14});g.text(24,66,"以两种薄壁颜色合并展示，不表达真实层厚",{fill:SVC.text});
+      g=frames[4];
+      g.rect(110,214,260,66,SVC.panel,{rx:12});g.rect(128,232,224,34,SVC.fluid,{rx:6,opacity:.28});
+      g.rect(150,196,180,20,SVC.silicon,{rx:5});g.rect(60,196,26,30,SVC.metal,{rx:5});g.path("M86 211H140",{stroke:SVC.metal,"stroke-width":3});
+      g.text(24,40,"电化学沉积工位（ECD）",{fill:SVC.muted,"font-size":14});g.text(24,66,"液槽与供电结构为概括示意",{fill:SVC.text});
+      g=frames[5];
+      g.rect(120,244,240,52,SVC.panel,{rx:10});g.path("M140 270H340",{stroke:SVC.metal,"stroke-width":4});
+      g.rect(186,120,108,52,SVC.metal,{rx:10});g.rect(198,176,84,14,SVC.silicon,{rx:4});
+      g.path("M150 300A110 26 0 0 0 330 300",{stroke:SVC.fluid,"stroke-width":3,"stroke-dasharray":"9 7",opacity:.7});
+      g.text(24,40,"平坦化（概括）",{fill:SVC.muted,"font-size":14});g.text(24,66,"接触机制见独立 CMP 演示",{fill:SVC.text});
+      g=frames[6];
+      g.rect(150,226,180,24,SVC.silicon,{rx:5});g.rect(150,120,180,20,SVC.metal,{rx:6});
+      const iscan=g.rect(150,170,32,6,SVC.fluid,{opacity:.8,rx:3});
+      g.text(24,40,"检查与继续叠层",{fill:SVC.muted,"font-size":14});g.text(24,66,"扫描光标不是电流或测试结果",{fill:SVC.text});
+      let m=mats[0];
+      m.rect(80,268,320,40,SVC.silicon,{rx:4});m.rect(80,214,320,54,"#2c4a63",{rx:4});
+      m.rect(150,232,180,22,"#b8763f",{rx:3});
+      m.text(24,40,"下层铜线嵌在绝缘材料中",{fill:SVC.muted,"font-size":14});m.text(24,330,"晶圆内部互连不是封装后的外部引脚。",{fill:SVC.text});
+      m=mats[1];
+      m.rect(80,268,320,40,SVC.silicon,{rx:4});m.rect(80,214,320,54,"#2c4a63",{rx:4});m.rect(150,232,180,22,"#b8763f",{rx:3});
+      const insul=m.rect(80,214,320,0,"#2c4a63",{rx:4});
+      m.text(24,40,"增加绝缘层",{fill:SVC.muted,"font-size":14});m.text(24,330,"下层铜线保留。",{fill:SVC.text});
+      m=mats[2];
+      m.rect(80,268,320,40,SVC.silicon,{rx:4});m.rect(80,180,320,88,"#2c4a63",{rx:4});m.rect(150,248,180,22,"#b8763f",{rx:3});
+      const trench=m.rect(150,180,180,34,SVC.dark,{rx:0});
+      const via=m.rect(228,214,34,34,SVC.dark,{rx:0});
+      m.text(24,40,"沟槽与通孔（此时无铜）",{fill:SVC.muted,"font-size":14});m.text(24,330,"开口到达指定下层线。",{fill:SVC.text});
+      m=mats[3];
+      m.rect(80,268,320,40,SVC.silicon,{rx:4});m.rect(80,180,320,88,"#2c4a63",{rx:4});m.rect(150,248,180,22,"#b8763f",{rx:3});
+      m.rect(150,180,180,34,SVC.dark,{rx:0});m.rect(228,214,34,34,SVC.dark,{rx:0});
+      m.rect(150,180,180,5,"#8fb6c6",{rx:0,opacity:.85});m.rect(228,214,5,34,"#8fb6c6",{rx:0,opacity:.85});
+      m.rect(150,180,180,9,"#c6dbe4",{rx:0,opacity:.35});m.rect(228,214,9,34,"#c6dbe4",{rx:0,opacity:.35});
+      m.text(24,40,"阻挡层、衬里与种子层",{fill:SVC.muted,"font-size":14});m.text(24,330,"薄壁参与界面与材料控制。",{fill:SVC.text});
+      m=mats[4];
+      m.rect(80,268,320,40,SVC.silicon,{rx:4});m.rect(80,180,320,88,"#2c4a63",{rx:4});m.rect(150,248,180,22,"#b8763f",{rx:3});
+      m.rect(228,214,34,34,"#b8763f",{rx:0,opacity:.9});
+      const fillCu=m.rect(150,180,180,34,"#c98a4e",{rx:0});
+      const overCu=m.rect(80,172,320,8,"#c98a4e",{rx:2,opacity:.9});
+      m.text(24,40,"铜填入沟槽与通孔",{fill:SVC.muted,"font-size":14});m.text(24,330,"表面同时形成需要去除的多余铜。",{fill:SVC.text});
+      m=mats[5];
+      m.rect(80,268,320,40,SVC.silicon,{rx:4});m.rect(80,180,320,88,"#2c4a63",{rx:4});
+      m.rect(228,214,34,34,"#b8763f",{rx:0,opacity:.9});m.rect(150,180,180,34,"#b8763f",{rx:0,opacity:.9});
+      const flat=m.rect(80,172,320,8,"#c98a4e",{rx:2,opacity:.9});
+      m.text(24,40,"平坦化后：上层线形成",{fill:SVC.muted,"font-size":14});m.text(24,330,"通孔连接上下层，槽内铜保留。",{fill:SVC.text});
+      m=mats[6];
+      m.rect(80,268,320,40,SVC.silicon,{rx:4});m.rect(80,180,320,88,"#2c4a63",{rx:4});
+      m.rect(228,214,34,34,"#b8763f",{rx:0});m.rect(150,180,180,34,"#b8763f",{rx:0});m.rect(150,248,180,22,"#b8763f",{rx:3});
+      m.circle(245,231,5,"#8adeb0",{opacity:.9});
+      const iscan2=m.rect(80,146,12,130,SVC.fluid,{rx:4,opacity:.3});
+      m.text(24,40,"检查并继续叠层",{fill:SVC.muted,"font-size":14});m.text(24,330,"未设通孔的交叉线路不会仅因交叉而连接。",{fill:SVC.text});
+      return (step,p)=>{
+        frames.forEach((f,i)=>f.op(f,i===step?1:0));mats.forEach((f,i)=>f.op(f,i===step?1:0));
+        idown.forEach((d,i)=>d.setAttribute("opacity",step===1?String(.2+.5*p):"0"));
+        irays.forEach((r,i)=>r.setAttribute("opacity",step===2?String(.15+.5*Math.abs(Math.sin(p*Math.PI*3+i*.5))):"0"));
+        ldown.forEach((d,i)=>d.setAttribute("opacity",step===3?String(.15+.5*p):"0"));
+        iscan.setAttribute("x",(150+(step===6?p*146:0)).toFixed(1));iscan.setAttribute("opacity",step===6?".8":"0");
+        insul.setAttribute("y",(214-(step===1?54*p:54)).toFixed(1));insul.setAttribute("height",(step===1?54*p:54).toFixed(1));
+        const open=step===2?Math.min(1,p*1.3):step>2?1:0;
+        trench.setAttribute("opacity",String(open));via.setAttribute("opacity",String(open));
+        fillCu.setAttribute("opacity",step===4?String(Math.min(1,p*1.35)):step>4?"1":"0");
+        overCu.setAttribute("opacity",step===4?String(Math.min(1,p*1.35)*.9):"0");
+        flat.setAttribute("opacity",step===5?String(Math.max(0,.9*(1-p*1.2))):"0");
+        iscan2.setAttribute("x",(80+(step===6?p*296:0)).toFixed(1));iscan2.setAttribute("opacity",step===6?".3":"0");
+      };
+    },
+    /* 薄膜厚度量测：材料几何全程不变，新增的只有信息（5 阶段） */
+    metrology({device,material}){
+      const frames=[],mats=[];
+      for(let i=0;i<5;i++){const g=device.g();g.rect(0,0,480,360,SVC.dark,{rx:0});frames.push(g);}
+      for(let i=0;i<5;i++){const m=material.g();m.rect(0,0,480,360,SVC.dark,{rx:0});mats.push(m);}
+      let g=frames[0];
+      g.rect(150,250,180,22,SVC.silicon,{rx:5});g.rect(150,214,180,36,SVC.surface,{rx:3,opacity:.85});
+      g.rect(150,120,180,22,SVC.metal,{rx:6});
+      g.text(24,40,"量测位置与校准准备",{fill:SVC.muted,"font-size":14});g.text(24,66,"先明确要得到哪个参数",{fill:SVC.text});
+      g=frames[1];
+      g.rect(150,250,180,22,SVC.silicon,{rx:5});g.rect(150,214,180,36,SVC.surface,{rx:3,opacity:.85});g.rect(150,120,180,22,SVC.metal,{rx:6});
+      g.line(240,142,214,214,"#f0b877",{opacity:.6});g.line(240,142,266,214,SVC.fluid,{opacity:.6});
+      g.text(24,40,"光学量测头：照明与接收",{fill:SVC.muted,"font-size":14});g.text(24,66,"两种路径颜色只区分发射与接收功能",{fill:SVC.text});
+      g=frames[2];
+      g.rect(150,250,180,22,SVC.silicon,{rx:5});g.rect(150,214,180,36,SVC.surface,{rx:3,opacity:.85});g.rect(150,120,180,22,SVC.metal,{rx:6});
+      g.line(240,142,214,214,"#f0b877",{opacity:.6});g.line(240,142,266,214,SVC.fluid,{opacity:.6});
+      const pos=g.rect(150,196,180,8,SVC.fluid,{rx:3,opacity:.35});
+      g.text(24,40,"定位与采样机构",{fill:SVC.muted,"font-size":14});g.text(24,66,"用少量测点表达采样，未模拟整片扫描",{fill:SVC.text});
+      g=frames[3];
+      g.rect(150,250,180,22,SVC.silicon,{rx:5});g.rect(150,214,180,36,SVC.surface,{rx:3,opacity:.85});g.rect(150,120,180,22,SVC.metal,{rx:6});
+      g.rect(360,196,26,54,SVC.panel,{rx:4});g.path("M360 196H386 M360 250H386",{stroke:SVC.muted,"stroke-width":2});
+      g.text(24,40,"信号分析与量测模型",{fill:SVC.muted,"font-size":14});g.text(24,66,"结合模型与校准分析，教学模型不替代仪器",{fill:SVC.text});
+      g=frames[4];
+      g.rect(150,250,180,22,SVC.silicon,{rx:5});g.rect(150,214,180,36,SVC.surface,{rx:3,opacity:.85});g.rect(150,120,180,22,SVC.metal,{rx:6});
+      const rec=g.rect(120,140,90,54,SVC.panel,{rx:8});g.path("M136 158H194 M136 174H178",{stroke:SVC.fluid,"stroke-width":3,opacity:.8});
+      g.text(24,40,"结果记录与控制衔接",{fill:SVC.muted,"font-size":14});g.text(24,66,"判断与处理按实际规范完成",{fill:SVC.text});
+      for(let i=0;i<5;i++){const m=mats[i];
+        m.rect(80,268,320,40,SVC.silicon,{rx:4});m.rect(80,232,320,36,SVC.surface,{rx:3,opacity:.85});
+      }
+      let m=mats[0];
+      m.text(24,40,"膜厚 = 这层膜上下界面的间距",{fill:SVC.muted,"font-size":14});m.text(24,330,"不是整片晶圆厚度；薄膜保持连续。",{fill:SVC.text});
+      m=mats[1];
+      m.line(240,150,214,232,"#f0b877",{opacity:.55});m.line(240,150,266,232,SVC.fluid,{opacity:.55});
+      m.text(24,40,"照明与接收（材料不变）",{fill:SVC.muted,"font-size":14});m.text(24,330,"不是用光束去除薄膜，也不新增材料。",{fill:SVC.text});
+      m=mats[2];
+      for(let i=0;i<4;i++)m.circle(130+i*72,222,5,SVC.fluid,{opacity:.45});
+      m.text(24,40,"不同位置采样",{fill:SVC.muted,"font-size":14});m.text(24,330,"得到的是信息，不是把这些位置加工出来。",{fill:SVC.text});
+      m=mats[3];
+      m.line(400,232,400,268,SVC.muted,{opacity:.8});m.line(395,232,405,232,SVC.muted,{opacity:.8});m.line(395,268,405,268,SVC.muted,{opacity:.8});
+      m.text(24,40,"分析得到厚度参数",{fill:SVC.muted,"font-size":14});m.text(24,330,"括号只指出所讨论的界面间距，不给出数值。",{fill:SVC.text});
+      m=mats[4];
+      m.rect(120,150,90,54,SVC.panel,{rx:8});m.path("M136 168H194 M136 184H178",{stroke:SVC.fluid,"stroke-width":3,opacity:.8});
+      m.text(24,40,"提供过程反馈",{fill:SVC.muted,"font-size":14});m.text(24,330,"量测、判断与加工是不同环节。",{fill:SVC.text});
+      return (step,p)=>{
+        frames.forEach((f,i)=>f.op(f,i===step?1:0));mats.forEach((f,i)=>f.op(f,i===step?1:0));
+        pos.setAttribute("x",(150+(step===2?p*140:0)).toFixed(1));pos.setAttribute("opacity",step===2?String(.2+.3*p):"0");
+        rec.setAttribute("opacity",step===4?String(.4+.6*p):"0");
+      };
+    },
+    /* 缺陷检测：颗粒与桥连自始存在，标记只是注释，材料不被修复（5 阶段） */
+    inspection({device,material}){
+      const frames=[],mats=[];
+      for(let i=0;i<5;i++){const g=device.g();g.rect(0,0,480,360,SVC.dark,{rx:0});frames.push(g);}
+      for(let i=0;i<5;i++){const m=material.g();m.rect(0,0,480,360,SVC.dark,{rx:0});mats.push(m);}
+      let g=frames[0];
+      g.rect(150,250,180,22,SVC.silicon,{rx:5});g.rect(150,214,180,36,SVC.surface,{rx:3,opacity:.8});
+      g.text(24,40,"承载与定位机构",{fill:SVC.muted,"font-size":14});g.text(24,66,"没有执行清洗或修复",{fill:SVC.text});
+      g=frames[1];
+      g.rect(150,250,180,22,SVC.silicon,{rx:5});g.rect(150,214,180,36,SVC.surface,{rx:3,opacity:.8});
+      g.rect(150,120,180,22,SVC.metal,{rx:6});g.line(240,142,214,214,"#f0b877",{opacity:.55});g.line(240,142,266,214,SVC.fluid,{opacity:.55});
+      g.text(24,40,"照明与成像组件",{fill:SVC.muted,"font-size":14});g.text(24,66,"采集信号并不冲走颗粒或切断桥连",{fill:SVC.text});
+      g=frames[2];
+      g.rect(150,250,180,22,SVC.silicon,{rx:5});g.rect(150,214,180,36,SVC.surface,{rx:3,opacity:.8});
+      g.rect(150,120,180,22,SVC.metal,{rx:6});
+      const boxes=[];for(let i=0;i<3;i++)boxes.push(g.rect(168+i*58,190,34,30,"none",{rx:3,stroke:"#e05a4a","stroke-width":2,opacity:0}));
+      g.text(24,40,"信号处理与位置记录",{fill:SVC.muted,"font-size":14});g.text(24,66,"候选位置由预设样本演示",{fill:SVC.text});
+      g=frames[3];
+      g.rect(150,250,180,22,SVC.silicon,{rx:5});g.rect(150,214,180,36,SVC.surface,{rx:3,opacity:.8});
+      g.rect(300,120,110,86,SVC.panel,{rx:10});g.rect(312,132,86,62,SVC.silicon,{rx:4});
+      g.circle(340,152,6,"#d98a4e");g.rect(360,164,28,6,"#c98a4e",{rx:3});
+      g.text(24,40,"复查观察位置",{fill:SVC.muted,"font-size":14});g.text(24,66,"实际复查可能采用不同成像方法",{fill:SVC.text});
+      g=frames[4];
+      g.rect(150,250,180,22,SVC.silicon,{rx:5});
+      const rec2=g.rect(120,140,96,54,SVC.panel,{rx:8});g.path("M136 158H198 M136 174H180",{stroke:SVC.fluid,"stroke-width":3,opacity:.8});
+      g.text(24,40,"缺陷记录与过程反馈",{fill:SVC.muted,"font-size":14});g.text(24,66,"必要时由相应工序另行处理",{fill:SVC.text});
+      let m;
+      for(let i=0;i<5;i++){m=mats[i];
+        m.rect(80,250,320,52,SVC.silicon,{rx:4});m.rect(80,214,320,36,SVC.surface,{rx:3,opacity:.8});
+        m.rect(128,206,26,8,"#d98a4e",{rx:2});
+        m.rect(246,206,58,8,"#c98a4e",{rx:2});
+        m.circle(300,196,6,"#d98a4e");
+      }
+      m=mats[0];
+      m.text(24,40,"样本上已有颗粒与桥连",{fill:SVC.muted,"font-size":14});m.text(24,330,"没有红框不代表异常尚不存在。",{fill:SVC.text});
+      m=mats[1];
+      m.text(24,40,"采集光学信号（材料不变）",{fill:SVC.muted,"font-size":14});m.text(24,330,"光学检测与湿法清洗是不同任务。",{fill:SVC.text});
+      m=mats[2];
+      m.rect(122,200,38,20,"none",{rx:3,stroke:"#e05a4a","stroke-width":2});
+      m.rect(240,200,40,20,"none",{rx:3,stroke:"#e05a4a","stroke-width":2});
+      m.rect(288,184,26,24,"none",{rx:3,stroke:"#e05a4a","stroke-width":2});
+      m.text(24,40,"标记候选位置",{fill:SVC.muted,"font-size":14});m.text(24,330,"框是观察注释，框内材料没有变化。",{fill:SVC.text});
+      m=mats[3];
+      m.rect(288,184,26,24,"none",{rx:3,stroke:"#e05a4a","stroke-width":3});
+      m.text(24,40,"复查与分类",{fill:SVC.muted,"font-size":14});m.text(24,330,"位置标记不等于确定根因。",{fill:SVC.text});
+      m=mats[4];
+      m.rect(120,150,96,54,SVC.panel,{rx:8});m.path("M136 168H198 M136 184H180",{stroke:SVC.fluid,"stroke-width":3,opacity:.8});
+      m.text(24,40,"形成处理依据",{fill:SVC.muted,"font-size":14});m.text(24,330,"即使需要清洗，也应由相应工序另行完成。",{fill:SVC.text});
+      return (step,p)=>{
+        frames.forEach((f,i)=>f.op(f,i===step?1:0));mats.forEach((f,i)=>f.op(f,i===step?1:0));
+        boxes.forEach((b,i)=>b.setAttribute("opacity",step===2?String(Math.max(0,Math.min(1,p*2-i*.3))):"0"));
+        rec2.setAttribute("opacity",step===4?String(.4+.6*p):"0");
+      };
+    },
+    /* 封装与测试：晶圆测试 → 分离裸片 → 放置 → 连接 → 保护 → 成品测试（6 阶段） */
+    packaging({device,material}){
+      const N=6,frames=[],mats=[];
+      for(let i=0;i<N;i++){const g=device.g();g.rect(0,0,480,360,SVC.dark,{rx:0});frames.push(g);}
+      for(let i=0;i<N;i++){const m=material.g();m.rect(0,0,480,360,SVC.dark,{rx:0});mats.push(m);}
+      let g=frames[0];
+      g.rect(140,250,200,24,SVC.panel,{rx:8});g.rect(150,232,180,18,SVC.silicon,{rx:5});
+      const probes=[];for(let i=0;i<3;i++)probes.push(g.line(196+i*44,150,196+i*44,232,SVC.metal,{opacity:.8}));
+      g.rect(150,120,180,18,SVC.panel,{rx:6});
+      g.text(24,40,"探针接触与定位",{fill:SVC.muted,"font-size":14});g.text(24,66,"画面只显示接触和定位",{fill:SVC.text});
+      g=frames[1];
+      g.rect(60,64,360,18,SVC.metal,{rx:6});
+      const dice=[];for(let i=0;i<5;i++)dice.push(g.rect(96+i*60,120,46,120,SVC.silicon,{rx:5}));
+      g.text(24,40,"划片机构",{fill:SVC.muted,"font-size":14});g.text(24,336,"省略减薄、边缘区域及切割损耗",{fill:SVC.muted,"font-size":12});
+      g=frames[2];
+      g.rect(120,268,240,22,SVC.panel,{rx:8});g.rect(196,236,88,14,SVC.silicon,{rx:4});
+      g.rect(196,196,88,34,SVC.metal,{rx:8});g.circle(212,250,5,"#c98a4e");g.circle(268,250,5,"#c98a4e");
+      g.text(24,40,"拾取与对准机构",{fill:SVC.muted,"font-size":14});g.text(24,336,"本例已按倒装方向放置，不展开翻转与凸点制备",{fill:SVC.muted,"font-size":12});
+      g=frames[3];
+      g.rect(120,268,240,22,SVC.panel,{rx:8});g.rect(196,236,88,14,SVC.silicon,{rx:4});
+      g.rect(196,196,88,34,SVC.metal,{rx:8});
+      const joints=[];for(let i=0;i<2;i++)joints.push(g.circle(212+i*56,250,6,"#c98a4e",{opacity:0}));
+      g.text(24,40,"连接工位",{fill:SVC.muted,"font-size":14});g.text(24,66,"加热、材料与过程未模拟",{fill:SVC.text});
+      g=frames[4];
+      g.rect(120,268,240,22,SVC.panel,{rx:8});g.rect(196,236,88,14,SVC.silicon,{rx:4});
+      g.rect(196,196,88,34,SVC.metal,{rx:8});
+      const shell=g.rect(150,176,180,96,SVC.panel,{rx:12,opacity:.55});g.circle(212,250,6,"#c98a4e");g.circle(268,250,6,"#c98a4e");
+      g.text(24,40,"装配工位：保护结构",{fill:SVC.muted,"font-size":14});g.text(24,66,"用局部开盖示意，未模拟成型与散热",{fill:SVC.text});
+      g=frames[5];
+      g.rect(120,268,240,22,SVC.panel,{rx:8});g.rect(196,196,88,34,SVC.metal,{rx:8});
+      g.rect(60,120,50,60,SVC.panel,{rx:8});g.rect(370,120,50,60,SVC.panel,{rx:8});
+      g.path("M212 268V300H110V180 M268 268V300H370V180",{stroke:SVC.metal,"stroke-width":3});
+      g.text(24,40,"测试插座与接触机构",{fill:SVC.muted,"font-size":14});g.text(24,66,"本动画不输出合格结论",{fill:SVC.text});
+      let m=mats[0];
+      m.rect(80,238,320,64,SVC.silicon,{rx:6});
+      for(let i=0;i<4;i++)m.rect(96+i*80,238,60,64,"#2c4a63",{rx:4});
+      m.text(24,40,"电路单元仍在整片晶圆上",{fill:SVC.muted,"font-size":14});m.text(24,330,"测试获取结果，不重新生成电路。",{fill:SVC.text});
+      m=mats[1];
+      const sep=[];for(let i=0;i<4;i++)sep.push(m.rect(96+i*80,238,60,64,SVC.silicon,{rx:6}));
+      m.rect(80,302,320,10,SVC.panel,{rx:5});
+      m.text(24,40,"分离得到裸片（间距被放大）",{fill:SVC.muted,"font-size":14});m.text(24,330,"电路不是在切割时才形成。",{fill:SVC.text});
+      m=mats[2];
+      m.rect(80,302,320,10,SVC.panel,{rx:5});
+      m.rect(196,214,88,16,SVC.silicon,{rx:4});
+      m.circle(212,238,5,"#c98a4e");m.circle(268,238,5,"#c98a4e");
+      m.text(24,40,"连接面朝向承载结构",{fill:SVC.muted,"font-size":14});m.text(24,330,"尚未表示连接完成。",{fill:SVC.text});
+      m=mats[3];
+      m.rect(80,302,320,10,SVC.panel,{rx:5});m.rect(196,214,88,16,SVC.silicon,{rx:4});
+      m.rect(202,240,72,8,"#c98a4e",{rx:3,opacity:.9});
+      m.text(24,40,"建立连接",{fill:SVC.muted,"font-size":14});m.text(24,330,"下方外部连接属于封装结构，不是原硅晶圆。",{fill:SVC.text});
+      m=mats[4];
+      m.rect(80,302,320,10,SVC.panel,{rx:5});m.rect(196,214,88,16,SVC.silicon,{rx:4});m.rect(202,240,72,8,"#c98a4e",{rx:3});
+      m.rect(120,188,240,64,SVC.panel,{rx:10,opacity:.55});m.rect(196,206,88,10,SVC.dark,{rx:0,opacity:.85});
+      m.text(24,40,"保护与支撑（剖开示意）",{fill:SVC.muted,"font-size":14});m.text(24,330,"不是实际缺损的成品。",{fill:SVC.text});
+      m=mats[5];
+      m.rect(80,302,320,10,SVC.panel,{rx:5});m.rect(196,214,88,16,SVC.silicon,{rx:4});m.rect(202,240,72,8,"#c98a4e",{rx:3});
+      m.rect(120,188,240,64,SVC.panel,{rx:10,opacity:.45});
+      m.path("M202 248V292H60 M278 248V292H420",{stroke:SVC.metal,"stroke-width":3});
+      m.text(24,40,"成品测试（形态保持）",{fill:SVC.muted,"font-size":14});m.text(24,330,"晶圆测试与成品测试不能相互完全替代。",{fill:SVC.text});
+      return (step,p)=>{
+        frames.forEach((f,i)=>f.op(f,i===step?1:0));mats.forEach((f,i)=>f.op(f,i===step?1:0));
+        probes.forEach(pr=>pr.setAttribute("opacity",step===0?String(.4+.5*(1-Math.abs(p-.5)*2)):"0"));
+        dice.forEach((d,i)=>{d.setAttribute("x",(96+i*60+(step===1?(i-2)*p*8:0)).toFixed(1));});
+        joints.forEach(j=>j.setAttribute("opacity",step===3?String(Math.min(1,p*1.4)):"0"));
+        shell.setAttribute("opacity",step===4?String(.25+.35*p):"0");
+        sep.forEach((s,i)=>{s.setAttribute("x",(96+i*80+(i-1.5)*p*14).toFixed(1));s.setAttribute("opacity",step===1?"1":"0");});
+      };
+    }
+  };
+  const svgScene=Object.prototype.hasOwnProperty.call(svgScenes,key)?svgScenes[key]:null;
+  if(svgScene){
+    const player=$('player');player.dataset.renderer='svg';
+    const mkSvg=label=>{const s=document.createElementNS(SVGNS,'svg');s.setAttribute('viewBox','0 0 480 360');s.setAttribute('class','mechanism-svg');s.setAttribute('role','img');s.setAttribute('aria-label',label);return s;};
+    const eqSvg=mkSvg('设备内部机构剖面'),matSvg=mkSvg('材料局部变化剖面');
+    const eqCanvas=$('equipmentCanvas'),matCanvas=$('materialCanvas');
+    eqCanvas.after(eqSvg);matCanvas.after(matSvg);eqCanvas.hidden=true;matCanvas.hidden=true;
+    const render=svgScene({device:svgMake(eqSvg),material:svgMake(matSvg)});
+    const steps=lesson.steps,nav=$('stepNav'),play=$('play'),timeline=$('timeline');
+    const reduced=matchMedia('(prefers-reduced-motion: reduce)'),duration=6000;
+    let step=0,progress=0,playing=false,frame=0,last=0;
+    nav.replaceChildren();
+    const buttons=steps.map((s,i)=>{const b=document.createElement('button');b.type='button';b.dataset.step=i;const n=document.createElement('span');n.textContent=String(i+1).padStart(2,'0');b.append(n,document.createTextNode(s.title));b.setAttribute('aria-label',n.textContent+' '+s.title);b.addEventListener('click',()=>choose(i));nav.append(b);return b;});
+    function describe(){const s=steps[step];$('stepTitle').textContent=s.title;$('activeMechanism').textContent=s.name;$('currentOutcome').textContent=s.material;$('takeaway').textContent=s.takeaway;$('equipmentText').textContent=s.equipment;$('materialText').textContent=s.material;$('previous').disabled=step===0;$('next').disabled=step===steps.length-1;buttons.forEach((b,i)=>i===step?b.setAttribute('aria-current','step'):b.removeAttribute('aria-current'));}
+    function status(){play.textContent=playing?'暂停':(step===steps.length-1&&progress===1?'重播':'播放全过程');play.setAttribute('aria-pressed',String(playing));$('playbackStatus').textContent=reduced.matches?'减少动态模式：用步骤与进度查看静态状态，不自动播放。':playing?'正在播放。可暂停观察，或拖动当前步骤进度。':'已暂停，可分步查看或播放。';}
+    function draw(){render(step,progress);player.dataset.step=step;player.dataset.progress=String(Math.round(progress*100));player.dataset.playing=String(playing);timeline.value=String(Math.round(progress*100));timeline.setAttribute('aria-valuetext',steps[step].title+'，教学进度 '+Math.round(progress*100)+'%；非实际处理时长');}
+    function pause(){playing=false;cancelAnimationFrame(frame);draw();status();}
+    function choose(i){pause();step=Math.max(0,Math.min(steps.length-1,i));progress=reduced.matches?1:0;describe();draw();status();}
+    function tick(now){if(!playing)return;const dt=Math.min(100,now-last);last=now;progress+=dt/duration;if(progress>=1){progress=1;if(step<steps.length-1){step++;progress=0;describe();}else{pause();return;}}draw();frame=requestAnimationFrame(tick);}
+    function start(){if(reduced.matches)return;if(step===steps.length-1&&progress===1){step=0;progress=0;describe();}playing=true;last=performance.now();draw();status();frame=requestAnimationFrame(tick);}
+    play.addEventListener('click',()=>playing?pause():start());
+    $('previous').addEventListener('click',()=>choose(step-1));$('next').addEventListener('click',()=>choose(step+1));
+    $('replay').addEventListener('click',()=>{choose(0);progress=0;draw();if(!reduced.matches)start();});
+    timeline.addEventListener('input',()=>{pause();progress=Number(timeline.value)/100;draw();status();});
+    document.addEventListener('visibilitychange',()=>{if(document.hidden)pause();});
+    reduced.addEventListener('change',()=>{pause();play.disabled=reduced.matches;status();});
+    for(const id of ['play','next','replay','timeline'])$(id).disabled=false;
+    play.disabled=reduced.matches;
+    describe();draw();status();
   }
 })();

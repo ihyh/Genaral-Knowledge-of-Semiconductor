@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>刻蚀设备内部如何加工晶圆 · 半导体入门</title><script>if(new URLSearchParams(location.search).has("embed"))document.documentElement.classList.add("embed","etch-embed");</script><link rel="stylesheet" href="/learning.css"><link rel="stylesheet" href="/etch.css"><script src="/etch.js" defer></script></head>
+<body class="etch-page">
+<a class="skip" href="#main">跳到正文</a>
+<header class="learn-header"><a class="learn-brand" href="/learn.html"><span class="brand-mark" aria-hidden="true">◈</span>半导体，从零开始<span class="preview">设备剖面</span></a><nav aria-label="主要导航"><a class="home-link" href="/learn.html">← 返回首页</a><a href="/learn.html#manufacturingFlow">制造流程</a><a href="/step.html?process=etch">刻蚀基础</a><a href="/chapters.html">完整章节</a></nav></header>
+<main id="main" class="learn-wrap">
+<section class="etch-intro">
+<p class="breadcrumb"><a href="/learn.html#manufacturingFlow">制造流程</a> / <a href="/step.html?process=etch">刻蚀</a> / 设备内部演示</p>
+<span class="eyebrow">先看设备，再看材料怎样改变</span>
+<h1>刻蚀不是画出图形，<br>而是移除开口下方的材料。</h1>
+<p>晶圆进入设备前，表面已有带开口的掩膜。本例用双射频电容耦合等离子体（CCP，Capacitively Coupled Plasma）说明一种干法刻蚀机制：气体被激发产生粒子，粒子作用于暴露的薄膜，形成沟槽。</p>
+<div class="etch-comparison"><p><strong>进入：</strong>掩膜已有开口，下方目标薄膜仍连续。</p><p><strong>离开：</strong>开口下方部分薄膜被移除，掩膜仍在；去胶与检查属于后续处理。</p></div>
+</section>
+<noscript><p class="fallback">当前未启用 JavaScript，不能播放。下方初始剖面、部件说明与七阶段完整文字仍可阅读。<a href="/step.html?process=etch">返回刻蚀基础 →</a></p></noscript>
+<section id="animation" class="etch-section" aria-labelledby="animationTitle">
+<h2 id="animationTitle">设备全景与晶圆表面，同步观察。</h2>
+<p class="etch-guide">先从 01 开始播放；也可选择任一阶段，拖动进度比较开始与结束。两个视图始终对应同一片晶圆。</p>
+<div id="player" class="etch-player" data-step="0" data-progress="0" data-playing="false" data-renderer="static">
+<nav id="stepNav" class="etch-stages" aria-label="选择机制阶段"></nav>
+<div class="etch-control-bar">
+<div class="etch-now"><span id="stageCount">01 / 07</span><strong id="stepTitle">工艺气体进入</strong><p id="activeMechanism">供气与真空排气</p></div>
+<div class="etch-controls"><button id="play" class="primary" aria-label="播放全过程" aria-pressed="false" disabled>播放</button><button id="previous" disabled>上一步</button><button id="next" disabled>下一步</button><button id="replay" disabled>从头重播</button><label for="timeline">本阶段进度<input id="timeline" type="range" min="0" max="100" value="0" disabled aria-valuetext="本阶段起始状态"></label></div>
+</div>
+<p id="playbackStatus" class="etch-status" role="status">初始剖面。启用 JavaScript 后可播放或分步查看。</p>
+<div class="etch-views">
+<figure class="etch-view" id="chamberView">
+<figcaption><span>设备内部</span><strong>反应腔功能剖面</strong><small>编号对应下方部件说明</small></figcaption>
+<svg id="equipmentView" viewBox="0 0 480 360" role="img" aria-labelledby="equipmentTitle equipmentDesc">
+<title id="equipmentTitle">双射频 CCP 刻蚀设备功能剖面</title><desc id="equipmentDesc">供气到上电极与晶圆之间的反应腔，晶圆由下方承载电极支撑；两路射频提供能量，排气通道接向真空泵。示意接线不代表所有设备。</desc>
+<defs><radialGradient id="plasmaGlow"><stop stop-color="#9163e9" stop-opacity=".55"/><stop offset="1" stop-color="#7060c9" stop-opacity="0"/></radialGradient><marker id="gasArrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0L8 4L0 8" fill="#a3bbd2"/></marker><clipPath id="chamberClip"><rect x="104" y="112" width="272" height="132"/></clipPath></defs>
+<path class="etch-pipe" d="M240 12V78 M390 220H428V270"/>
+<rect class="etch-wall" x="90" y="65" width="305" height="237" rx="22"/>
+<rect class="etch-electrode" x="120" y="88" width="240" height="22" rx="4"/>
+<g id="gasFlow"><path d="M180 115V143 M240 115V143 M300 115V143" stroke="#a3bbd2" stroke-width="2" marker-end="url(#gasArrow)"/></g>
+<ellipse id="plasma" cx="242" cy="174" rx="139" ry="76" fill="url(#plasmaGlow)" opacity="0"/>
+<rect id="sheath" x="110" y="218" width="267" height="24" rx="5" fill="#f3b166" opacity="0"/>
+<path id="sheathEdge" d="M110 218H377" stroke="#f3b166" stroke-width="2" stroke-dasharray="7 6" opacity="0"/>
+<g id="chamberParticles" clip-path="url(#chamberClip)"></g>
+<rect class="etch-wafer" x="124" y="246" width="238" height="7" rx="3"/>
+<rect class="etch-electrode" x="125" y="261" width="236" height="23" rx="5"/>
+<path class="etch-wire" d="M74 110H120 M74 291H116V273H125"/>
+<g id="hfSupply"><rect x="8" y="88" width="65" height="43" rx="8"/><path d="M17 110Q22 90 27 110T37 110T47 110T57 110T67 110"/></g>
+<g id="lfSupply"><rect x="8" y="270" width="65" height="43" rx="8"/><path d="M17 291Q29 269 41 291T65 291"/></g>
+<g id="pump"><circle cx="428" cy="291" r="24"/><path d="M417 280L439 302 M439 280L417 302"/></g>
+<path id="exhaustFlow" d="M363 217H426V263" fill="none" stroke="#e5edf5" stroke-width="3" stroke-dasharray="5 8" opacity="0"/>
+<g id="exhaustParticles"></g>
+<rect x="269" y="237" width="43" height="20" fill="none" stroke="#8bc8d9" stroke-dasharray="4 3"/>
+<g class="part-number"><circle cx="265" cy="33" r="14"/><text x="265" y="33">1</text><circle cx="374" cy="98" r="14"/><text x="374" y="98">2</text><circle cx="242" cy="165" r="14"/><text x="242" y="165">3</text><circle cx="375" cy="248" r="14"/><text x="375" y="248">4</text><circle cx="242" cy="284" r="14"/><text x="242" y="284">5</text><circle cx="451" cy="260" r="14"/><text x="451" y="260">6</text></g>
+<text x="40" y="155" class="supply-label">高频</text><text x="40" y="340" class="supply-label">低频</text>
+</svg>
+<p class="view-note" id="equipmentCaption">晶圆已经装入；本演示不模拟搬送与装载操作。虚线框是右侧放大区域。</p>
+</figure>
+<figure class="etch-view" id="surfaceView">
+<figcaption><span>晶圆表面</span><strong>同一局部的连续变化</strong><small>放大剖面 · 非真实比例</small></figcaption>
+<svg id="materialView" viewBox="0 0 480 360" role="img" aria-labelledby="materialTitle materialDesc">
+<title id="materialTitle">掩膜开口下方目标薄膜逐步被移除</title><desc id="materialDesc">橙色掩膜有三个开口，蓝色目标薄膜位于其下，灰色衬底保留。离子与自由基作用于暴露表面，副产物离开。</desc>
+<defs><marker id="ionArrow" markerWidth="7" markerHeight="7" refX="5" refY="3.5" orient="auto"><path d="M0 0L7 3.5L0 7" fill="#f8b567"/></marker><clipPath id="surfaceClip"><rect x="32" y="26" width="307" height="260"/></clipPath></defs>
+<rect id="surfaceSheath" x="32" y="108" width="307" height="53" fill="#f4b061" opacity="0"/>
+<path id="surfaceEdge" d="M32 108H339" stroke="#f4b061" stroke-width="2" stroke-dasharray="7 6" opacity="0"/>
+<g id="ionPaths" opacity="0" stroke="#f8b567" stroke-width="2" marker-end="url(#ionArrow)"><path d="M108 121V151"/><path d="M198 121V151"/><path d="M288 121V151"/></g>
+<rect id="targetFilm" x="32" y="190" width="307" height="96" fill="#438bb6"/>
+<rect id="substrate" x="32" y="286" width="307" height="42" fill="#718397"/>
+<g id="trenches" fill="#101c2e"><rect x="90" y="190" width="36" height="0"/><rect x="180" y="190" width="36" height="0"/><rect x="270" y="190" width="36" height="0"/></g>
+<g id="reactionFront" stroke="#8adeb0" stroke-width="4" opacity="0"><path d="M90 190H126"/><path d="M180 190H216"/><path d="M270 190H306"/></g>
+<g id="mask" fill="#c99054"><rect x="32" y="166" width="58" height="24"/><rect x="126" y="166" width="54" height="24"/><rect x="216" y="166" width="54" height="24"/><rect x="306" y="166" width="33" height="24"/></g>
+<g id="surfaceParticles" clip-path="url(#surfaceClip)"></g>
+<g class="layer-labels"><path d="M340 178H350 M340 237H350 M340 307H350"/><text x="358" y="186">掩膜</text><text x="358" y="245">目标膜</text><text x="358" y="315">衬底</text></g>
+<text id="surfaceFocus" x="32" y="52" class="focus-label">开口已有，薄膜未刻蚀</text>
+</svg>
+<p class="view-note" id="currentOutcome">掩膜已有开口，目标薄膜仍连续；供气本身不等于完成刻蚀。</p>
+</figure>
+</div>
+<ul class="etch-legend" aria-label="粒子图例"><li><i class="gas">●</i><span>工艺气体<span>原料随供气进入反应空间</span></span></li><li><i class="electron">−</i><span>电子<span>获得能量，促使气体变化</span></span></li><li><i class="ion">＋</i><span>正离子<span>受电场作用，提供方向性</span></span></li><li><i class="radical">◆</i><span>中性自由基<span>参与表面化学反应</span></span></li><li><i class="product">○○</i><span>挥发性副产物<span>离开表面，经排气移出</span></span></li></ul>
+<p class="etch-cause"><strong id="takeaway">本阶段的因果关系：</strong><span id="stageCause">供气与抽气共同建立处理环境，晶圆上的掩膜图形已经由前序工艺形成。</span></p>
+</div>
+<p class="teaching-note">这是慢速二维教学示意，不是实测录像或粒子仿真。七阶段按讲解重点拆分；实际放电、粒子输运、表面反应与排气会同时发生。颜色、粒子数量、速度、尺寸和刻蚀深度均不对应生产数值；省略侧壁钝化、掩膜损耗、控制联锁及上机操作。</p>
+</section>
+<section class="etch-section" aria-labelledby="partsTitle"><h2 id="partsTitle">先识别部件，再理解作用。</h2>
+<ol class="etch-parts"><li><strong>供气通道</strong>输送选定工艺气体；不是用气流直接切割材料。</li><li><strong>上电极与气体分配区</strong>与下方电极形成放电空间，本图合并表示供气与电极功能。</li><li><strong>反应腔</strong>在适当的低压条件下维持等离子体，粒子在这里生成并输运。</li><li><strong>晶圆</strong>上表面已有图形化掩膜；右侧放大的是极小的局部区域。</li><li><strong>承载电极</strong>支撑晶圆，配合偏压影响近表面鞘层及离子能量；省略夹持与温控细节。</li><li><strong>排气通道与真空泵</strong>维持处理所需环境，并移出气体及可挥发的反应副产物。</li></ol>
+<div class="etch-rf"><h3>为什么用两路射频？</h3><p>射频（RF，Radio Frequency）是快速交变的电信号，不是射向晶圆的光束。典型双频 CCP 使用较高频率主要支持等离子体生成，较低频率主要调节离子能量；两者存在耦合，不是完全独立的控制。</p><p>图中以上电极接高频、下电极接低频说明功能。实际供电方式、匹配网络和频率组合随设备配置变化，也可能把多路射频加在同一电极；本例不复原某一型号。</p></div>
+</section>
+<section id="etchText" class="etch-section" aria-labelledby="textTitle"><h2 id="textTitle">不播放，也能完整理解这条作用链。</h2>
+<ol id="textSteps" class="etch-reading">
+<li><h3>01 工艺气体进入</h3><p>已有图形化掩膜的晶圆置于承载电极。供气与真空排气共同建立处理环境；此时目标薄膜仍连续。气体种类与处理条件取决于目标材料，本例不提供生产参数。</p></li>
+<li><h3>02 射频使气体形成等离子体</h3><p>电场向电子传递能量。电子与气体碰撞可使其电离或解离，产生离子与自由基。电离指形成带电粒子；解离指分子键断开形成较小的粒子。等离子体含电子、离子及中性粒子，不是全部气体都变成离子。</p></li>
+<li><h3>03 晶圆附近建立鞘层</h3><p>等离子体接近表面时形成鞘层，即与内部等离子体电势不同、电子相对较少的近表面区域。鞘层中的电场影响正离子到达表面时的能量与方向。鞘层不是新沉积的膜，也不是机械挡板。</p></li>
+<li><h3>04 离子定向到达表面</h3><p>正离子经过鞘层受到加速，有助于使材料移除具有方向性。图中的近垂直轨迹仅用于说明这一作用；实际离子具有能量和角度分布，并非严格笔直的同速粒子束。中性自由基不按相同方式被电场加速。</p></li>
+<li><h3>05 自由基与离子协同移除材料</h3><p>自由基到达暴露表面并参与化学反应，离子轰击可促进反应或材料移除。适用条件下，二者协同使掩膜开口下方形成沟槽。不是每次粒子碰撞都会移除一个材料块；图示反应前沿只用于标记正在加工的位置。</p></li>
+<li><h3>06 挥发性副产物离开并排出</h3><p>适用反应形成能以气态离开表面的副产物，经气体输运与排气移出腔体。排气与刻蚀同时进行，不是等所有材料移除后才开启真空泵；真空泵也不直接把固体薄膜吸走。并非所有副产物都能完全挥发，腔壁沉积与清洁未在本例展开。</p></li>
+<li><h3>07 停止处理，对照加工结果</h3><p>本例只在目标薄膜内形成沟槽，衬底保留，掩膜仍在。实际工艺需要相应终点控制与检查，不能凭示意图判定合格。后续是否去胶、清洗或进入下一轮加工，按产品路线安排；一次刻蚀不等于完成芯片。</p></li>
+</ol>
+</section>
+
+<nav class="bottom-nav" aria-label="继续学习"><a id="readingLink" href="/step.html?process=etch">← 返回刻蚀基础讲解</a><a href="/learn.html#manufacturingFlow">返回制造流程全景 →</a></nav>
+</main><footer class="learn-footer"><span>理解原理，不替代设备培训或安全操作规程</span><a href="/learn.html#manufacturingFlow">返回制造流程 →</a></footer>
+</body></html>

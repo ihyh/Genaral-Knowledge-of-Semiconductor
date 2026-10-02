@@ -2,6 +2,8 @@
   "use strict";
   const $=id=>document.getElementById(id);
   if(!$('player')) return;
+  // Lessons that ship their own 2D mechanism scene are played by process.js; the 3D renderer stands down.
+  if($('player').dataset.renderer==='svg') return;
   const lesson=window.FabLesson;
   const steps=lesson?.steps || [
     {title:"准备表面",name:"加工台与晶圆承载",equipment:"晶圆被送到加工位置，承载台提供支撑与定位。清洗和表面准备按实际路线完成，本场景只展示承载。",material:"硅基底上已有本轮待加工的连续薄膜，没有本轮胶层图形。",takeaway:"加工对象可以是已有多层结构的晶圆，不必是裸硅。",caption:"硅基底和待加工薄膜连续，本轮图形尚未形成。"},

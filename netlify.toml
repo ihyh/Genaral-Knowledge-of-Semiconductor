@@ -1,0 +1,10 @@
+# 纯静态教学站：直接发布 public 目录，无需构建
+[build]
+  publish = "public"
+  command = ""
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    X-Content-Type-Options = "nosniff"
