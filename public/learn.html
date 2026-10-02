@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>半导体入门 · 基础概念、企业分工与制造流程</title>
+<link rel="stylesheet" href="/learning.css">
+</head>
+<body class="flow-home">
+<a class="skip" href="#main">跳到正文</a>
+<header class="learn-header"><a class="learn-brand" href="/learn.html"><span class="brand-mark" aria-hidden="true">◈</span>半导体，从零开始</a><nav aria-label="主要导航"><a href="#basics">基础概念</a><a href="#overview">企业分工</a><a href="#manufacturingFlow">制造流程</a></nav></header>
+<main id="main" class="learn-wrap">
+<section id="basics" class="section" aria-labelledby="basicsTitle">
+<div class="section-heading"><div><span class="eyebrow">01 / 分清基本概念</span><h1 id="basicsTitle">半导体、芯片、晶圆有什么区别？</h1></div></div>
+<div class="concept-grid">
+<article class="concept"><span class="concept-index">材料类别</span><h3>半导体</h3><p>一类导电特性可通过材料组成、加工及外部条件调节的材料。“导电”指支持电流通过，电流是电荷的定向运动。硅是常见的一种，但半导体并不只有硅。</p><p>它首先是材料概念，不等于某一颗芯片；“半导体行业”还包括相关器件、设计与生产活动。</p></article>
+<article class="concept"><span class="concept-index">器件与产品</span><h3>芯片</h3><p>利用半导体材料制造、承担计算、存储或信号处理等功能的电子器件。日常看到的芯片通常已封装，内部可以有一个或多个裸片。</p><p>器件是承担一定电子功能的结构或部件；电路单元由器件及其连接构成。裸片是晶圆上制造并分离出的单个电路单元。“芯片”根据语境，可以指裸片或封装后的器件。</p></article>
+<article class="concept"><span class="concept-index">加工载体</span><h3>晶圆</h3><p>半导体制造使用的片状衬底，即承载器件加工的薄片。本网站主要以单晶硅晶圆为例，可在同一片上制造多个电路单元。</p><p>刚制备的晶圆与完成电路加工的晶圆状态不同；一片晶圆不等于一颗已经封装的芯片。</p></article>
+</div>
+<p class="concept-relation">三者的关系：以硅为例，半导体材料用于制备晶圆，再在晶圆上制造芯片电路。<a href="/chapters.html#circuit-basics">电流与器件的基础解释 →</a></p>
+<nav class="entry-actions" aria-label="概念之后"><a href="#overview">接着了解企业分工 →</a><a href="#manufacturingFlow">进入制造流程 →</a></nav>
+<p class="source-line">本节依据：<a href="https://www.intel.com/content/dam/www/central-libraries/us/en/documents/semiconductors-and-intel-introduction.pdf" target="_blank" rel="noopener">Intel 半导体介绍</a>、<a href="https://www.intel.com/content/www/us/en/newsroom/tech101/explaining-common-chip-terms.html" target="_blank" rel="noopener">常见芯片术语</a>、<a href="https://www.sumcosi.com/english/products/process/" target="_blank" rel="noopener">SUMCO 晶圆制造</a>。教学摘要，非官方原文；查阅日期：2026-10-01。</p>
+</section>
+<section id="overview" class="section" aria-labelledby="overviewTitle">
+<div class="section-heading"><div><span class="eyebrow">02 / 区分企业分工</span><h2 id="overviewTitle">Fabless、Foundry、IDM 等公司有什么区别？</h2></div></div>
+<div class="role-grid">
+<article class="role-card"><span>无晶圆厂设计企业</span><h3>Fabless</h3><p>主要负责芯片设计，提供制造所需的设计数据，并委托其他企业制造。</p></article>
+<article class="role-card"><span>晶圆代工厂</span><h3>Foundry</h3><p>为客户提供晶圆制造服务，根据设计数据和相应工艺，在晶圆上加工器件与连接。</p></article>
+<article class="role-card"><span>整合器件制造商</span><h3>IDM</h3><p>同时开展芯片设计与制造。英文全称为 Integrated Device Manufacturer。</p></article>
+<article class="role-card"><span>封装与测试服务</span><h3>封装测试企业</h3><p>承担裸片装配、封装连接及相关测试服务；也有企业自行完成这些环节。</p></article>
+</div>
+<p class="role-relation">这些是业务分工，不是公司名称或技术等级。企业可以承担多种角色；设计数据与晶圆材料共同进入制造。</p>
+<nav class="entry-actions" aria-label="分工之后"><a href="#manufacturingFlow">进入制造流程，选择环节学习 →</a></nav>
+<p class="source-line">依据：<a href="https://www.asml.com/en/technology/all-about-microchips/how-microchips-are-made" target="_blank" rel="noopener">ASML 芯片制造与企业类型介绍</a>、<a href="https://www.intel.com/content/www/us/en/newsroom/tech101/manufacturing/how-silicon-die-become-chip-packages.html" target="_blank" rel="noopener">Intel 封装与测试介绍</a>。查阅日期：2026-10-01。</p>
+</section>
+<section id="manufacturingFlow" class="manufacturing-flow" aria-labelledby="flowTitle">
+<div id="directory" class="flow-heading"><div><span class="eyebrow">03 / 进入具体工艺</span><h2 id="flowTitle">晶圆制备与制造流程全景</h2></div><p>点击环节阅读基础讲解；加工与检查环节可观看设备演示。</p></div>
+<div class="flow-board">
+<div class="flow-lane flow-preparation"><div class="flow-label"><strong>制造前准备</strong><span>两路输入共同进入制造</span></div><div class="flow-pair"><a class="flow-node" data-process="design" href="/step.html?process=design"><h3>芯片设计</h3><p>形成电路布局与制造数据</p><span class="node-action">查看细节 →</span></a><a class="flow-node" data-process="materials" href="/step.html?process=materials"><h3>晶圆制备</h3><p>准备加工用的晶圆与表面</p><span class="node-action">查看细节 →</span></a></div></div>
+<section class="flow-lane flow-fabrication" aria-labelledby="fabricationTitle"><div class="flow-label"><strong id="fabricationTitle">晶圆制造</strong><span>反复加工，建立器件与连接</span></div><div class="flow-fabrication-content">
+<p class="flow-caption">图形转移循环示例 · 同类工艺会重复使用</p>
+<div class="flow-cycle"><a class="flow-node" data-process="cleaning" href="/step.html?process=cleaning"><h3>清洗与表面准备</h3><p>控制污染，准备加工表面</p><span class="node-action">查看细节 →</span></a><a class="flow-node" data-process="film" href="/step.html?process=film"><h3>成膜</h3><p>在表面增加所需材料层</p><span class="node-action">查看细节 →</span></a><a class="flow-node" data-process="lithography" href="/step.html?process=lithography"><h3>光刻</h3><p>在光刻胶上形成加工图形</p><span class="node-action">查看细节 →</span></a><a class="flow-node" data-process="etch" href="/step.html?process=etch"><h3>刻蚀</h3><p>选择性移除材料，转移图形</p><span class="node-action">查看细节 →</span></a></div>
+<p class="flow-caption">根据目标结构组合使用 · 以下排列不表示固定先后顺序</p>
+<div class="flow-options"><a class="flow-node" data-process="implant" href="/step.html?process=implant"><h3>掺杂与注入</h3><p>调整局部材料的电气特性</p><span class="node-action">查看细节 →</span></a><a class="flow-node" data-process="anneal" href="/step.html?process=anneal"><h3>热处理与退火</h3><p>按路线调整材料与掺杂状态</p><span class="node-action">查看细节 →</span></a><a class="flow-node" data-process="cmp" href="/step.html?process=cmp"><h3>平坦化</h3><p>降低表面起伏，支持后续加工</p><span class="node-action">查看细节 →</span></a><a class="flow-node" data-process="interconnect" href="/step.html?process=interconnect"><h3>多层互连</h3><p>建立器件之间的电连接</p><span class="node-action">查看细节 →</span></a></div>
+<p class="flow-repeat">↺ 多轮加工与检查后逐步形成器件及互连；一次循环不等于完成芯片。</p>
+</div></section>
+<div class="flow-lane flow-control"><div class="flow-label"><strong>贯穿制造</strong><span>连接工序与工艺评估</span></div><div class="flow-support"><a class="flow-node" data-process="transfer" href="/step.html?process=transfer"><h3>晶圆传输与自动化</h3><p>在载具、设备与工位之间搬送晶圆，核对身份与安全交接</p><span class="node-action">查看细节 →</span></a><a class="flow-node" data-process="feedback" href="/step.html?process=feedback"><h3>量测与检测</h3><p>检查厚度、图形或缺陷；结果不等于自动修复材料</p><span class="node-action">查看细节 →</span></a></div></div>
+<div class="flow-lane flow-downstream"><div class="flow-label"><strong>制造后的处理</strong><span>具体安排随产品路线变化</span></div><div class="flow-pair flow-output"><a class="flow-node" data-process="wafer-testing" href="/step.html?process=wafer-testing"><h3>晶圆测试与分离</h3><p>检查电路单元，再按路线获得裸片</p><span class="node-action">查看细节 →</span></a><a class="flow-node" data-process="packaging" href="/step.html?process=packaging"><h3>封装与成品测试</h3><p>连接和保护裸片，检查成品表现</p><span class="node-action">查看细节 →</span></a></div></div>
+</div>
+<p class="flow-scope">这是学习用的关系概览，不是全部产品通用的工艺配方。光刻不必总以刻蚀为后续；量测、检测和测试也不只发生在最后。<a href="/chapters.html#product-routes">了解不同产品的制造重点 →</a></p>
+</section>
+
+</main>
+<footer class="learn-footer"><span>教学概览不代表唯一制造路线</span><a href="/chapters.html">完整基础讲解 →</a></footer>
+</body>
+</html>

@@ -1,0 +1,7 @@
+# Findings
+
+Current server imports SQLite and auto-seeds209records. Hiding homepage would not remove APIs/data or prevent regeneration. Teaching pages use static owned assets and chapter fetch, not database APIs; can use dependency-free static server instead.
+Old-only active public assets: index.html,app.js,styles.css. Remove database,seed,query enrichment/search/source-maintenance/vendor modules and tests, plus old standalone query exports in Fab. Remove all reference-tool nav/footer links in five teaching HTML files. Old root URL including query parameters should open learning, /index.html redirect to clean learning address; retired /api/* return410 with no data.
+Old snapshots may contain query assets/databases; move these old-only files into offline recovery archive too, preserve unrelated teaching snapshots.
+
+Final207targets include exact current query assets/modules/data/tests/3query-only planning folders, old standalone exports and old-only query files from teaching snapshots. No teaching root/directory removed. Archived recovery is outside public, protected by static asset allowlist; old API/CSV/vendor/source/log endpoints respond410 even writes, old scripts/styles and filesystem traversal/archive paths404. Old query-parameter URL redirects to clean root; /learn.html remains usable. File/server integrity and full native-browser teaching regression passed. Backup-only209records are not active application data; no permanent archive erase requested or performed.

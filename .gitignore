@@ -1,0 +1,25 @@
+# Local dependencies, credentials and generated files.
+node_modules/
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+*.log
+*.pid
+*.sqlite
+*.sqlite3
+*.db
+/data/
+.DS_Store
+Thumbs.db
+
+# Keep source, plans and reports; exclude local backups and browser artifacts.
+.planning/**/qa/
+.planning/**/before*/
+.planning/**/after/
+.planning/**/*.json
+.planning/**/*.png
+.planning/**/*.jpg
+.planning/**/*.bat
+/.planning/github-import-20261002/
