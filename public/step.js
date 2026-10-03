@@ -120,60 +120,6 @@ function fitEmbed(frame) {
   });
   addEventListener("resize", measure);
 }
-/* Mount a demonstration inside this page instead of framing the standalone file. */
-const demoScripts = {};
-function loadDemoScript(src) {
-  if (!demoScripts[src]) demoScripts[src] = new Promise((resolve, reject) => {
-    const script = document.createElement("script");
-    script.src = src; script.onload = resolve; script.onerror = reject;
-    document.head.append(script);
-  });
-  return demoScripts[src];
-}
-function mountDemo(href, label) {
-  const figure = document.createElement("figure");
-  figure.className = "demo-embed";
-  const caption = document.createElement("figcaption");
-  const title = document.createElement("h2");
-  title.textContent = "设备演示 · " + label;
-  const hint = document.createElement("p");
-  hint.textContent = "可直接播放、逐步查看或拖动进度；下方文字讲解说明工艺目的、设备作用与前后状态。演示为教学重建，不是实机录像。";
-  caption.append(title, hint);
-  const marker = document.createElement("a");
-  marker.className = "demo-embed-open";
-  marker.href = href;
-  marker.hidden = true;
-  const slot = document.createElement("div");
-  slot.className = "demo-mount";
-  figure.append(caption, marker, slot);
-  const path = href.split("?")[0];
-  const query = new URLSearchParams(href.split("?")[1] || "");
-  (async () => {
-    try {
-      const response = await fetch(path, {cache:"no-store"});
-      if (!response.ok) throw new Error("demo unavailable");
-      const source = new DOMParser().parseFromString(await response.text(), "text/html");
-      const main = source.querySelector("main");
-      if (!main) throw new Error("demo markup unavailable");
-      for (const child of [...main.children]) {
-        if (child.matches(".bottom-nav")) continue;
-        slot.append(document.importNode(child, true));
-      }
-      const lessonKey = query.get("lesson");
-      if (lessonKey) window.FabMechanismKey = lessonKey;
-      await loadDemoScript(path.endsWith("lithography.html") ? "/lithography.js" : path.endsWith("etch.html") ? "/etch.js" : "/process.js");
-      const heading = document.getElementById("detailTitle");
-      if (heading) document.title = heading.textContent + " · 流程详情 · 半导体，从零开始";
-    } catch {
-      slot.remove();
-      const note = document.createElement("p");
-      note.className = "fallback";
-      note.textContent = "本环节演示暂时未能载入，可刷新后重试；下方文字讲解仍可阅读。";
-      figure.append(note);
-    }
-  })();
-  return figure;
-}
 function embedDemo(href, label) {
   const figure = document.createElement("figure");
   figure.className = "demo-embed";
@@ -188,7 +134,11 @@ function embedDemo(href, label) {
   frame.src = href + (href.includes("?") ? "&" : "?") + "embed=1";
   frame.title = label + "：设备内部机制演示";
   frame.loading = "lazy";
-  figure.append(caption, frame);
+  const open = document.createElement("a");
+  open.className = "demo-embed-open";
+  open.href = href;
+  open.textContent = "打开独立演示页面 →";
+  figure.append(caption, frame, open);
   fitEmbed(frame);
   return figure;
 }
@@ -241,7 +191,7 @@ async function showStep() {
     demos.hidden = step.lessons.length === 0;
     for (const [lesson, label] of step.lessons) {
       const href = lesson === "etch" ? "/etch.html" : (lesson === "lithography" ? "/lithography.html?from=" : "/process.html?lesson=" + lesson + "&from=") + choice;
-      demos.append(step.lessons.length === 1 ? mountDemo(href, label) : embedDemo(href, label));
+      demos.append(embedDemo(href, label));
     }
     const [definition, anchor, next, connection] = learning[choice];
     const prerequisite = document.getElementById("detailPrerequisite");
