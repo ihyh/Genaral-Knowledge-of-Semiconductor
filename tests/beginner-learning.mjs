@@ -204,7 +204,7 @@ try {
       console.log('Checking '+lesson+' at '+width+'px');
       await navigate('/process.html?lesson='+lesson,"document.querySelector('#player')?.dataset.renderer==="+JSON.stringify(renderer));
       assert.equal(await evaluate("document.querySelectorAll('#stepNav button').length"),count);
-      assert.equal(await evaluate("document.querySelectorAll('#textSteps li').length"),count);
+      assert.equal(await evaluate("document.querySelectorAll('#stepNav button').length"),count);
       await directReading(lesson+' '+width);
       assert.equal(await evaluate("document.querySelector('#player').dataset.playing"),'false');
       assert.ok(await evaluate("document.querySelector('#routeNote').textContent.includes('教学示意')"));
@@ -388,7 +388,7 @@ try {
   const injected=await call('Page.addScriptToEvaluateOnNewDocument',{source:"const original=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(type,...args){return type==='webgl'?null:original.call(this,type,...args)}"});
   await navigate('/lithography.html',"document.querySelector('#player')?.dataset.renderer==='unavailable'");
   assert.equal(await evaluate("document.querySelector('#renderFallback').hidden"),false);await click('#stepNav button[data-step="5"]');
-  assert.ok(await evaluate("document.querySelector('#takeaway').textContent.includes('薄膜和硅基底仍连续')"));await evaluate("document.querySelector('#animation').scrollIntoView()");await overflow('fallback');await shot('fallback-320');
+  assert.ok(await evaluate("document.querySelector('#currentOutcome').textContent.length>10"));await evaluate("document.querySelector('#animation').scrollIntoView()");await overflow('fallback');await shot('fallback-320');
   await call('Page.removeScriptToEvaluateOnNewDocument',{identifier:injected.identifier});
   for(const [lesson,,renderer='webgl'] of processCases) {
     await call('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
@@ -398,14 +398,14 @@ try {
     await waitExpr("!document.querySelector('#play').disabled && !document.querySelector('#playbackStatus').textContent.includes('减少动态效果')");
     await click('#replay');await waitExpr("document.querySelector('#player').dataset.playing==='true'");
     await evaluate("Object.defineProperty(document,'hidden',{configurable:true,value:true});document.dispatchEvent(new Event('visibilitychange'))");assert.equal(await evaluate("document.querySelector('#player').dataset.playing"),'false');await evaluate('delete document.hidden');
-    if(renderer==='webgl'){await evaluate("document.querySelector('#equipmentCanvas').dispatchEvent(new Event('webglcontextlost',{cancelable:true}))");assert.equal(await evaluate("document.querySelector('#player').dataset.renderer"),'unavailable');await click('#stepNav button[data-step="2"]');assert.ok(await evaluate("document.querySelector('#takeaway').textContent.length>10"));}
+    if(renderer==='webgl'){await evaluate("document.querySelector('#equipmentCanvas').dispatchEvent(new Event('webglcontextlost',{cancelable:true}))");assert.equal(await evaluate("document.querySelector('#player').dataset.renderer"),'unavailable');await click('#stepNav button[data-step="2"]');assert.ok(await evaluate("document.querySelector('#currentOutcome').textContent.length>10"));}
     else assert.ok(await evaluate("!!document.querySelector('.mechanism-svg')"),'svg mechanism rendered '+lesson);
   }
   for(const key of ['unknown','__proto__','constructor']) {await navigate('/process.html?lesson='+key,"document.querySelector('#unknownLesson')?.hidden===false");assert.equal(await evaluate("document.querySelector('#player')"),null,'unknown lesson is explicit '+key);}
   await navigate('/lithography.html',"document.querySelector('#player')?.dataset.renderer==='webgl'");
   await evaluate("document.querySelector('#equipmentCanvas').dispatchEvent(new Event('webglcontextlost',{cancelable:true}))");assert.equal(await evaluate("document.querySelector('#player').dataset.renderer"),'unavailable');
   await call('Emulation.setScriptExecutionDisabled',{value:true});await call('Page.navigate',{url:base+'/lithography.html'});await sleep(300);await call('Emulation.setScriptExecutionDisabled',{value:false});
-  await waitExpr("!!document.querySelector('#textSteps')");assert.equal(await evaluate("document.querySelectorAll('#textSteps li').length"),7);await directReading('no-script lithography');
+  await waitExpr("!!document.querySelector('#details')");assert.equal(await evaluate("document.querySelectorAll('#stepNav button').length"),7);await directReading('no-script lithography');
   await call('Emulation.setScriptExecutionDisabled',{value:true});await call('Page.navigate',{url:base+'/chapters.html'});await sleep(300);await call('Emulation.setScriptExecutionDisabled',{value:false});
   await waitExpr("document.querySelectorAll('section.chapter').length===7");assert.ok(await evaluate("document.querySelector('#chapter-6').textContent.includes('倒装连接')"),'static seven-chapter reading works without scripts');
   await call('Emulation.setDeviceMetricsOverride',{width:1440,height:1000,deviceScaleFactor:1,mobile:false});

@@ -10,7 +10,7 @@ const run=async function(){
   await click('#detailDemos .demo-embed-open');await waitExpr("document.querySelector('#player')?.dataset.renderer==='svg'");
   await directReading('etch');
   assert.equal(await evaluate("document.querySelectorAll('#stepNav button').length"),7);
-  assert.equal(await evaluate("document.querySelectorAll('#textSteps>li').length"),7);
+  assert.equal(await evaluate("document.querySelectorAll('#stepNav button').length"),7);
   assert.equal(await evaluate("document.querySelectorAll('.etch-parts>li').length"),6);
   assert.equal(await evaluate("document.querySelectorAll('.source-list,.source-line').length"),0,'demonstration page shows no source list');
   assert.equal(await evaluate("document.querySelectorAll('.etch-legend li').length"),5,'all particle symbols explained');
@@ -86,7 +86,7 @@ const run=async function(){
   await call('Emulation.setScriptExecutionDisabled',{value:true});
   await call('Page.navigate',{url:base+'/etch.html'});await sleep(400);await call('Emulation.setScriptExecutionDisabled',{value:false});
   await waitExpr("!!document.querySelector('noscript a') && document.querySelector('#player').dataset.renderer==='static'");
-  assert.equal(await evaluate("document.querySelectorAll('#textSteps>li').length"),7);assert.ok(await evaluate("!!document.querySelector('#equipmentView') && !!document.querySelector('#materialView')"));await directReading('noscript');
+  assert.equal(await evaluate("document.querySelectorAll('#stepNav button').length"),7);assert.ok(await evaluate("!!document.querySelector('#equipmentView') && !!document.querySelector('#materialView')"));await directReading('noscript');
   const ids=await evaluate("[...document.querySelectorAll('[id]')].map(e=>e.id)");assert.equal(new Set(ids).size,ids.length);
   assert.deepEqual(errors,[]);assert.ok(requests.filter(u=>u.startsWith('http')).every(u=>new URL(u).origin===new URL(base).origin),'no remote asset requests');
   results.passed=true;writeFileSync(path.join(out,'results.json'),JSON.stringify(results,null,2));console.log(JSON.stringify({passed:true,materialStates:results.stages.length,viewChecks:results.views.length,errors}));

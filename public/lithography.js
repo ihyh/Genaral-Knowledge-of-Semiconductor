@@ -171,7 +171,7 @@
   function update(notice="") {
     const s=steps[step];player.dataset.step=String(step);player.dataset.playing=String(playing);
     $("stepTitle").textContent=String(step+1).padStart(2,"0")+' '+s.title;
-    $("equipmentName").textContent=s.name;$("activeMechanism").textContent=s.name;$("currentOutcome").textContent=s.material;$("equipmentText").textContent=s.equipment;$("materialText").textContent=s.material;$("takeaway").textContent=s.takeaway;
+    $("equipmentName").textContent=s.name;$("activeMechanism").textContent=s.name;$("currentOutcome").textContent=s.material;$("equipmentText").textContent=s.equipment;$("materialText").textContent=s.material;
     $("equipmentCaption").textContent=s.equipment;$("materialCaption").textContent=s.caption;
     $("equipmentCanvas").setAttribute("aria-label",s.title+'：'+'设备内部加工机构'+'三维示意');$("materialCanvas").setAttribute("aria-label",s.title+'：'+'晶圆或材料局部变化'+'三维示意');
     document.querySelectorAll("[data-step]").forEach(b=>{if(b.tagName==="BUTTON") b.setAttribute("aria-current",Number(b.dataset.step)===step?'step':'false');});

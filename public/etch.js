@@ -86,7 +86,7 @@
   }
   function describe(){
     const s=stages[step];byId("stageCount").textContent=String(step+1).padStart(2,"0")+" / 07";byId("stepTitle").textContent=s.title;
-    byId("activeMechanism").textContent=s.part;byId("surfaceFocus").textContent=s.focus;byId("currentOutcome").textContent=s.state;byId("stageCause").textContent=s.cause;
+    byId("activeMechanism").textContent=s.part;byId("surfaceFocus").textContent=s.focus;byId("currentOutcome").textContent=s.state;
     byId("materialDesc").textContent=s.state;byId("equipmentDesc").textContent=s.part+"。"+s.cause+" 供气、电极、承载与真空排气的功能位置见部件说明。";
     byId("previous").disabled=step===0;byId("next").disabled=step===stages.length-1;
     buttons.forEach((b,i)=>{if(i===step)b.setAttribute("aria-current","step");else b.removeAttribute("aria-current");});
