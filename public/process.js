@@ -98,7 +98,7 @@
         s("形成处理依据","缺陷记录与过程反馈","将缺陷信息用于过程分析，必要时按规范安排后续复核、工艺调整或处置；不是所有缺陷都可返工。","颗粒、桥连与标记保留，新增的是位置和评估信息。即使需要清洗，也应由相应工序另行完成。","检测提供反馈；修复、处置和质量判定需要另外的依据与流程。")
       ],drawScene:inspectionScene}
   };
-  const key=new URLSearchParams(location.search).get("lesson") || "materials",lesson=Object.hasOwn(lessons,key)?lessons[key]:null;
+  const key=window.FabMechanismKey || new URLSearchParams(location.search).get("lesson") || "materials",lesson=Object.hasOwn(lessons,key)?lessons[key]:null;
   const readingTopics={applications:["芯片有什么用","chapter-2"],design:["芯片设计与行业分工","chapter-3"],nodes:["制程节点","concept-nodes"],wafers:["晶圆尺寸","concept-wafers"],yield:["良率","concept-yield"]};
   if(Object.hasOwn(readingTopics,key)) {
     const [title,anchor]=readingTopics[key],url="/chapters.html#"+anchor;

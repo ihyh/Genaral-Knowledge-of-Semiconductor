@@ -26,7 +26,7 @@ const run=async function(){
       await shot('equipment-section-'+key,'#detailContent .equipment-cutaway');
     }
     results.detailSchemas.push(schema);
-    const entries=await evaluate("[...document.querySelectorAll('#detailDemos .demo-embed-open')].map(a=>a.getAttribute('href'))");
+    const entries=await evaluate("[...document.querySelectorAll('#detailDemos iframe')].map(f=>f.getAttribute('src').replace(/([?&])embed=1/,''))");
     for(const entry of entries) {
       await navigate(entry,"document.querySelector('#player')?.dataset.renderer==="+JSON.stringify(key==='lithography'?'webgl':'svg'));
       const journey=await evaluate("({url:location.pathname+location.search,step:Number(document.querySelector('#player').dataset.step),title:document.querySelector('#stepTitle').textContent,returnTo:document.querySelector('#readingLink').getAttribute('href'),outcome:document.querySelector('#currentOutcome').textContent})");

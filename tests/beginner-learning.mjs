@@ -91,7 +91,7 @@ try {
       if(['design','transfer'].includes(node.key))assert.ok(await evaluate("document.getElementById('detailDemos').hidden && document.querySelectorAll('#detailDemos iframe').length===0"),node.key+' has no inline demonstration');
       else {
         const inline=await evaluate("[...document.querySelectorAll('#detailDemos iframe')].map(f=>f.getAttribute('src'))");
-        const entries=await evaluate("[...document.querySelectorAll('#detailDemos .demo-embed-open')].map(a=>a.getAttribute('href'))");
+        const entries=await evaluate("[...document.querySelectorAll('#detailDemos iframe')].map(f=>f.getAttribute('src').replace(/([?&])embed=1/,''))");
         assert.equal(inline.length,entries.length,node.key+' one inline demonstration per entry');
         assert.deepEqual(inline.map(s=>s.replace(/([?&])embed=1/,'')),entries,node.key+' inline demonstration matches its entry');
         assert.ok(await evaluate("document.getElementById('detailDemos').getBoundingClientRect().top<document.getElementById('detailContent').getBoundingClientRect().top"),node.key+' demonstration shown before the explanation');

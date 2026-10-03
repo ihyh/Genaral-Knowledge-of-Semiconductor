@@ -6,8 +6,8 @@ const run=async function(){
   const results={passed:false,stages:[],views:[],errors};
   await call('Emulation.setDeviceMetricsOverride',{width:1440,height:1000,deviceScaleFactor:1,mobile:false});
   await navigate('/step.html?process=etch',"document.querySelector('#detailContent')?.dataset.process==='etch'");
-  assert.deepEqual(await evaluate("[...document.querySelectorAll('#detailDemos .demo-embed-open')].map(a=>a.getAttribute('href'))"),['/etch.html']);
-  await click('#detailDemos .demo-embed-open');await waitExpr("document.querySelector('#player')?.dataset.renderer==='svg'");
+  assert.deepEqual(await evaluate("[...document.querySelectorAll('#detailDemos iframe')].map(f=>f.getAttribute('src').replace(/([?&])embed=1/,''))"),['/etch.html']);
+  await navigate('/etch.html',"document.querySelector('#player')?.dataset.renderer==='svg'");
   await directReading('etch');
   assert.equal(await evaluate("document.querySelectorAll('#stepNav button').length"),7);
   assert.equal(await evaluate("document.querySelectorAll('#textSteps>li').length"),7);
